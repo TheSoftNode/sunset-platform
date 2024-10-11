@@ -62,7 +62,7 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
     );
 
     return (
-        <div className="w-full bg-gradient-to-br from-cyan-700 to-cyan-900 py-12 px-6 flex gap-y-8 lg:gap-y-6 flex-col">
+        <div className="w-full bg-gradient-to-br from-teal-900 via-cyan-800 to-blue-900 py-12 px-6 flex gap-y-8 lg:gap-y-6 flex-col">
             <h2 className="font-bold font-serif text-[1.7rem] leading-[2.2rem] prose text-center text-white">
                 Please Select Kits
             </h2>
@@ -88,12 +88,12 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
             <div className="flex justify-between lg:px-40  mt-1">
                 <button
                     onClick={goBack}
-                    className="bg-gradient-to-r from-orange-500 via-green-500 to-cyan-500 hover:from-green-600 hover:via-orange-600 hover:to-blue-600 text-white font-bold rounded-full px-4 py-2 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+                    className="bg-gradient-to-r from-orange-500 via-green-500 to-cyan-500 hover:from-green-600 hover:via-orange-600 hover:to-blue-600 text-white font-bold rounded-lg px-4 py-2 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
                 >
                     Back
                 </button>
                 <button
-                    className="bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 hover:from-teal-600 hover:via-cyan-500 hover:to-purple-600 text-white font-bold rounded-full px-4 py-2 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+                    className="bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 hover:from-teal-600 hover:via-cyan-500 hover:to-purple-600 text-white font-bold rounded-lg px-4 py-2 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
                     onClick={next}
                 >
                     Next
