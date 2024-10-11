@@ -1,6 +1,6 @@
-import sunsetLogo from "../../assets/images/susnet_logo.png"
-import susnetHub from "../../assets/images/susnetHub.png"
-import susnetKit from "../../assets/images/susnetkit.png"
+import susnetHub from "../../assets/images/susnet_hub.png"
+import susnetKit from "../../assets/images/susnet_kit2.png"
+import susnetImage from "../../assets/images/susnet_image.png"
 
 const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
 {
@@ -30,13 +30,13 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
                 }`}>
                 {contents.map((item, index) => (
                     <li key={index} className="flex items-center">
-                        <div className="w-7 h-7 mr-3 rounded-full bg-cyan-500 flex items-center justify-center">
-                            <img
-                                src={item.image}
-                                alt={`Icon for ${item.text}`}
-                                className="w-4 h-4 object-cover"
-                            />
-                        </div>
+                        {/* <div className="w-7 h-7 mr-3 rounded-full bg-cyan-500 flex items-center justify-center"> */}
+                        <img
+                            src={item.image}
+                            alt={`Icon for ${item.text}`}
+                            className="w-8 h-8 mr-3 object-cover"
+                        />
+                        {/* </div> */}
                         <span className={`font-semibold prose text-[0.8rem] leading-4  ${selectedKit === kitIndex ? "text-orange-500" : "text-gray-600"} `}>{item.text}</span>
                     </li>
                 ))}
@@ -70,17 +70,17 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
             <div className="flex flex-wrap justify-center lg:gap-0 gap-y-6 lg:-mx-5">
                 {renderKit(1, "Kit 1", "Ideal for Homes", [
                     { text: "1 x Hub", image: susnetHub },
-                    { text: "1 x Global Thermostat", image: sunsetLogo }
+                    { text: "1 x Global Thermostat", image: susnetImage }
                 ], "€330")}
                 {renderKit(2, "Kit 2", "Homes and Small Businesses", [
                     { text: "1 x Hub", image: susnetHub },
                     { text: "4 x TRVs", image: susnetKit },
-                    { text: "1 x Global Thermostat", image: sunsetLogo }
+                    { text: "1 x Global Thermostat", image: susnetImage }
                 ], "€750")}
                 {renderKit(3, "Kit 3", "Custom for Large Companies", [
                     { text: "Customized # of Hub", image: susnetHub },
                     { text: "Customized # of TRVs", image: susnetKit },
-                    { text: "Customized # of Global Thermostat", image: sunsetLogo }
+                    { text: "Customized # of Global Thermostat", image: susnetImage }
                 ], "€900")}
             </div>
 
