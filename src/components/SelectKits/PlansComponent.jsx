@@ -1,8 +1,24 @@
 import React from 'react';
 import { CheckIcon, XMarkIcon } from '@heroicons/react/16/solid';
+import { motion } from 'framer-motion';
+import special from "../../assets/images/special2.png"
 
 const PlansComponent = ({ handleSelectPlan, isSelected, setIsPlans, update }) =>
 {
+
+    const SpecialOffer = () => (
+        <div className="absolute -top-6 -right-7 w-24 h-24 rotate-12">
+            <img src={special} alt="" />
+            {/* <div className="bg-yellow-400 text-blue-900 text-xs font-bold rounded-full w-full h-full flex items-center justify-center transform rotate-12 shadow-lg">
+                <div className="text-center">
+                    <div>€1</div>
+                    <div>First</div>
+                    <div>Month</div>
+                </div>
+            </div> */}
+        </div>
+    );
+
     const handleCardClick = (planName) =>
     {
         if (isSelected(planName))
@@ -14,12 +30,47 @@ const PlansComponent = ({ handleSelectPlan, isSelected, setIsPlans, update }) =>
         }
     };
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 12
+            }
+        }
+    };
+
     return (
-        <div className="w-full bg-gradient-to-br from-teal-900 via-cyan-800 to-blue-900 gap-y-6 px-3  flex flex-col items-center justify-center py-8">
-            <h2 className="font-bold text-xl lg:text-2xl prose text-white text-center mb-4">
+        <motion.div
+            className="w-full bg-gradient-to-br from-teal-900 via-cyan-800 to-blue-900 gap-y-6 px-3 flex flex-col items-center justify-center py-8"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+        >
+            <motion.h2
+                className="font-bold text-xl lg:text-2xl prose text-white text-center mb-4"
+                variants={cardVariants}
+            >
                 Please Select a Subscription Plan
-            </h2>
-            <div className="flex  flex-col md:flex-row gap-6 w-full max-w-5xl px-4">
+            </motion.h2>
+            <motion.div
+                className="flex flex-col md:flex-row gap-10 lg:gap-8 w-full max-w-[60rem] px-4"
+                variants={containerVariants}
+            >
                 {[
                     {
                         name: 'Basic',
@@ -49,71 +100,111 @@ const PlansComponent = ({ handleSelectPlan, isSelected, setIsPlans, update }) =>
                         isSelected: isSelected('Premium')
                     }
                 ].map((plan, idx) => (
-                    <div
+                    <motion.div
                         key={idx}
-                        className={`rounded-lg p-4 shadow-md flex-1 cursor-pointer ${plan.isSelected ? 'bg-white' : 'bg-gray-100'}`}
+                        className={`rounded-lg p-4 shadow-lg flex-1 cursor-pointer ${plan.isSelected ? 'bg-white' : 'bg-gray-100'} border border-gray-200 relative`}
                         onClick={() => handleCardClick(plan.name)}
+                        variants={cardVariants}
+                        whileHover={{
+                            y: -5,
+                            boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                            borderColor: "rgba(59, 130, 246, 0.5)",
+                            transition: {
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20
+                            }
+                        }}
+                        whileTap={{ scale: 0.98 }}
                     >
-                        <div className="bg-cyan-700 w-24 mx-auto text-white text-center text-sm prose font-semibold rounded-full px-2 py-1 mb-2 inline-block">
+                        <SpecialOffer />
+                        <motion.div
+                            className="bg-cyan-700 w-24 mx-auto text-white text-center text-sm prose font-semibold rounded-full px-2 py-1 mb-2 inline-block"
+                            whileHover={{ scale: 1.05 }}
+                        >
                             {plan.name}
-                        </div>
-                        <h3 className="text-sm font-bold prose mb-1">{plan.description}</h3>
+                        </motion.div>
+                        <h3 className="text-sm text-center font-semibold prose mb-1">{plan.description}</h3>
                         <div className="mb-2 flex flex-col justify-center items-center">
                             <p className="font-bold prose text-red-600 text-sm">{plan.price}</p>
                             <p className="text-sm prose font-bold">or</p>
-                            <p className="text-xs prose font-bold text-green-600">{plan.yearlyPrice}</p>
+                            <p className="text-xs mb-1 prose font-bold text-green-600">{plan.yearlyPrice}</p>
                         </div>
                         <ul className="text-sm mb-3">
                             {plan.features.map((feature, i) => (
-                                <li key={i} className="flex items-center mb-1 prose text-xs font-semibold">
+                                <motion.li
+                                    key={i}
+                                    className="flex items-center mb-1 prose text-xs font-semibold"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.1 }}
+                                >
                                     <CheckIcon className="w-4 h-4 text-green-800 mr-1 flex-shrink-0" />
                                     <span>{feature}</span>
-                                </li>
+                                </motion.li>
                             ))}
                             {plan.extras.map((extra, i) => (
-                                <li key={i} className="flex items-center mb-1 prose text-xs font-semibold">
+                                <motion.li
+                                    key={i}
+                                    className="flex items-center mb-1 prose text-xs font-semibold"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: (plan.features.length + i) * 0.1 }}
+                                >
                                     <XMarkIcon className="w-4 h-4 text-red-500 mr-1 flex-shrink-0" />
                                     <span>{extra}</span>
-                                </li>
+                                </motion.li>
                             ))}
                         </ul>
-                        <button
-                            className={`w-full py-1 rounded-lg text-white font-bold text-xs ${plan.isSelected ? 'bg-cyan-600' : 'bg-blue-500 hover:bg-blue-600'}`}
+                        <motion.button
+                            className={`w-full py-1 rounded-lg text-white font-bold text-xs ${plan.isSelected ? 'bg-cyan-600' : 'bg-blue-500'}`}
                             onClick={(e) =>
                             {
                                 e.stopPropagation(); // Prevent the card click event from firing
                                 handleCardClick(plan.name);
                             }}
+                            whileHover={{
+                                scale: 1.03,
+                                backgroundColor: plan.isSelected ? '#0891b2' : '#3b82f6',
+                                transition: { duration: 0.2 }
+                            }}
+                            whileTap={{ scale: 0.97 }}
                         >
                             {plan.isSelected ? 'Selected' : 'Select'}
-                        </button>
-                    </div>
+                        </motion.button>
+                    </motion.div>
                 ))}
-            </div>
-
-            <div className="flex justify-between w-full max-w-3xl px-4">
-                <button
+            </motion.div>
+            <motion.div
+                className="flex justify-between w-full max-w-3xl px-4"
+                variants={cardVariants}
+            >
+                <motion.button
+                    className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold"
                     onClick={() => setIsPlans(false)}
-                    className="bg-gradient-to-r from-orange-500 via-green-500 to-cyan-500 hover:from-green-600 hover:via-orange-600 hover:to-blue-600 text-white font-bold rounded-lg px-4 py-2 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+                    whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "#ef4444",
+                        transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
                 >
                     Back
-                </button>
-                <button
-                    className="bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 hover:from-teal-600 hover:via-cyan-500 hover:to-purple-600 text-white font-bold rounded-lg px-4 py-2 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+                </motion.button>
+                <motion.button
+                    className="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold"
                     onClick={update}
+                    whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "#22c55e",
+                        transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
                 >
                     Next
-                </button>
-            </div>
-            {/* <div className="flex justify-between w-full max-w-3xl px-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-bold" onClick={() => setIsPlans(false)}>
-                    Back
-                </button>
-                <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-bold" onClick={update}>
-                    Next
-                </button>
-            </div> */}
-        </div>
+                </motion.button>
+            </motion.div>
+        </motion.div>
     );
 };
 
