@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QuizBrowsePage from '../Quiz/QuizBrowsePage';
-import SelectKitsPlans from '../Kits/SelectKitsPlans';
 import { X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SelectKitsPlans from '../SelectKits/SelectedKitsPlans';
 
 const QuizSection = () =>
 {

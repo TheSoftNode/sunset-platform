@@ -94,3 +94,10 @@
   z-index: 99999 !important;
   position: absolute !important;
 }
+
+@media screen and (max-width: 540px) {
+  .toast-message {
+    margin: 2rem !important;
+    top: 2rem !important;
+  }
+}
