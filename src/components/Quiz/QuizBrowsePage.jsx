@@ -106,7 +106,7 @@ const QuizBrowsePage = () =>
 
             <div className="flex gap-3  items-center mb-4">
               <img className='w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-teal-500 ' src={robot3} alt="Robot" />
-              <h1 className='text-lg sm:text-xl font-bold text-teal-700 text-center sm:text-left'>Customize Your Kits and Plans</h1>
+              <h1 className='text-sm prose sm:text-xl font-bold text-teal-700 text-center sm:text-left'>Customize Your Kits and Plans</h1>
             </div>
 
             <div className='mb-3'>
