@@ -12,6 +12,7 @@ const QuizBrowsePage = () =>
   const [progress, setProgress] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [close, setClose] = useState(false);
+  const [notSelected, setNotSelected] = useState(false);
   const data = Data;
 
   const next = () =>
@@ -19,6 +20,7 @@ const QuizBrowsePage = () =>
     if (selectedOption === null)
     {
       toast.error('Please select an option before moving to the next question.');
+      setNotSelected(true)
       return;
     }
 
@@ -54,11 +56,13 @@ const QuizBrowsePage = () =>
     setIndex(0);
     setProgress(0);
     setSelectedOption(null);
+    setNotSelected(false)
   };
 
   const checkAns = (option) =>
   {
     setSelectedOption(option);
+    setNotSelected(false)
   };
 
   const getColor = () =>
@@ -145,7 +149,7 @@ const QuizBrowsePage = () =>
                       className={`w-full text-left flex bg-white border rounded-lg p-2 prose transition-all duration-200 text-sm ${selectedOption === optionNumber
                         ? 'border-teal-500 bg-teal-50 text-teal-700'
                         : 'border-gray-200 hover:border-teal-300 text-gray-700'
-                        } ${getOptionCount() <= 2 ? 'mt-2 mb-5' : 'mb-2'}`}
+                        } ${getOptionCount() <= 2 ? 'mt-2 mb-5' : 'mb-2'} ${notSelected && "border border-red-500"}`}
                       onClick={() => checkAns(optionNumber)}
                     >
                       {data[index][`option${optionNumber}`]}
