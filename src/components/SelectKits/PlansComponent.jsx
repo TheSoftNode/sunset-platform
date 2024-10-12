@@ -68,7 +68,7 @@ const PlansComponent = ({ handleSelectPlan, isSelected, setIsPlans, update }) =>
                 Please Select a Subscription Plan
             </motion.h2>
             <motion.div
-                className="flex flex-col md:flex-row gap-10 lg:gap-8 w-full max-w-[60rem] px-4"
+                className="flex flex-col flex-wrap sm:flex-row gap-10 sm:gap-8 w-full  md:max-w-[60rem] px-4"
                 variants={containerVariants}
             >
                 {[

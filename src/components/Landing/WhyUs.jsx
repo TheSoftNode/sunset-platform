@@ -34,7 +34,7 @@ const WhyUs = () =>
 
     return (
         <section className="relative py-24 overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-100">
-            <div className="container mx-auto px-4">
+            <div className="container sm:px-8 md:px-4 mx-auto px-4">
                 <motion.div
                     initial="hidden"
                     animate="visible"

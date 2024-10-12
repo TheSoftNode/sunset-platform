@@ -1,87 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
-// import { motion, AnimatePresence } from "framer-motion"; // Import framer-motion
-
-// // Components
-// import logo from "../../assets/images/logo_3.png";
-// import Nav from "./Nav";
-// import ThemeToggler from "../../Theme/ThemeToggler";
-// import MobileNav from "./MobileNav";
-// import LoginButton from "./LoginButton";
-// import YourCart from "../Billing/YourCart";
-// import CartComponent from "../Billing/Cart";
-
-// const Header = () =>
-// {
-//   const [header, setHeader] = useState(false);
-//   const location = useLocation();
-
-//   useEffect(() =>
-//   {
-//     const handleScroll = () =>
-//     {
-//       window.scrollY > 80 ? setHeader(true) : setHeader(false);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   return (
-//     <motion.header
-//       initial={{ opacity: 0, y: -50 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.5 }}
-//       className={`
-//         ${header
-//           ? "py-4 bg-gray-50 shadow-lg dark:bg-accent"
-//           : "py-6 dark:bg-transparent bg-gray-50"}
-//         sticky top-0 z-30 transition-all bg-gray-50 duration-300 ease-in-out px-2 lg:px-4
-//         ${location.pathname === "/" && ""}
-//       `}
-//     >
-//       <div className="container mx-auto px-4">
-//         <div className="flex justify-between items-center">
-//           <motion.img
-//             whileHover={{ scale: 1.05 }}
-//             whileTap={{ scale: 0.95 }}
-//             src={logo}
-//             alt="Sunset logo"
-//             className="w-16 h-16 transition-all duration-300 ease-in-out"
-//           />
-//           <div className="flex items-center gap-x-3 lg:gap-x-6">
-//             <Nav
-//               containerStyles="hidden xl:flex gap-x-8 items-center"
-//               linkStyles="relative hover:text-blue-500 transition-all duration-300 ease-in-out font-semibold text-dark dark:text-gray-400 prose text-sm"
-//               underlineStyles="absolute left-0 top-full h-[2px] bg-orange-500 w-full"
-//             // underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full"
-//             />
-
-//             <motion.div
-//               whileHover={{ scale: 1.1 }}
-//               whileTap={{ scale: 0.9 }}
-//               className="hidden lg:flex"
-//             >
-//               <ThemeToggler />
-//             </motion.div>
-
-//             <LoginButton />
-
-//             <CartComponent />
-
-//             <div className="xl:hidden">
-//               <MobileNav />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </motion.header>
-//   );
-// };
-
-// export default Header;
-
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -146,7 +62,7 @@ const Header = () =>
         ${location.pathname === "/" && ""}
       `}
     >
-      <div className="container mx-auto px-4">
+      <div className=" w-full mx-auto px-4 sm:px-8">
         <div className="flex justify-between items-center">
           <motion.img
             variants={itemVariants}
@@ -161,18 +77,18 @@ const Header = () =>
             className="flex items-center gap-x-3 lg:gap-x-6"
           >
             <Nav
-              containerStyles="hidden xl:flex gap-x-8 items-center"
+              containerStyles="hidden lg:flex gap-x-8 items-center"
               linkStyles="relative hover:text-blue-500 transition-all duration-300 ease-in-out font-semibold text-dark dark:text-gray-400 prose text-sm"
               underlineStyles="absolute left-0 top-full h-[2px] bg-orange-500 w-full"
             />
 
 
 
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="mr-3">
               <LoginButton />
             </motion.div>
 
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="mr-3">
               <CartComponent />
             </motion.div>
 
@@ -180,12 +96,12 @@ const Header = () =>
               variants={itemVariants}
               whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
-              className="hidden lg:flex"
+              className="hidden xs:flex mr-3"
             >
               <ThemeToggler />
             </motion.div>
 
-            <motion.div variants={itemVariants} className="xl:hidden">
+            <motion.div variants={itemVariants} className="lg:hidden">
               <MobileNav />
             </motion.div>
           </motion.div>

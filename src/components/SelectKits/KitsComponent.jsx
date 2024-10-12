@@ -12,7 +12,7 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
     const renderKit = (kitIndex, title, description, contents, price) => (
         <div
             onClick={() => handleKitSelection(kitIndex)}
-            className={`cursor-pointer w-full md:w-1/3 lg:w-1/4 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out ${selectedKit === kitIndex ? "bg-blue-700 scale-105 text-white" : "bg-white text-gray-900"
+            className={`cursor-pointer w-full  xs:w-1/2 md:w-1/3 lg:w-1/4 py-4 px-12 xs:px-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out ${selectedKit === kitIndex ? "bg-blue-700 scale-105 text-white" : "bg-white text-gray-900"
                 } hover:scale-105`}
         >
             <h4

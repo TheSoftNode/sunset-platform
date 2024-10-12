@@ -5,6 +5,10 @@ import SummaryComponent from "./SummaryComponent";
 import PlansComponent from "./PlansComponent";
 import KitsComponent from "./KitsComponent";
 
+import susnetHub from "../../assets/images/susnet_hub.png"
+import susnetKit from "../../assets/images/susnet_kit2.png"
+import susnetImage from "../../assets/images/susnet_image.png"
+
 const SelectKitsPlans = () =>
 {
     const [isPlans, setIsPlans] = useState(false);
@@ -17,34 +21,28 @@ const SelectKitsPlans = () =>
     // Define plan details
     const planDetails = {
         Basic: {
-            name: "Basic",
-            price: "€10 / month",
-            features: [
-                "1 IOT Hub + 1 Thermostat",
-                "Connect up to 5 Devices",
-                "No Data Dashboard",
-                "No Customer Support"
-            ]
+            name: 'Basic',
+            description: 'Entry Level Features',
+            price: '€10/Month',
+            yearlyPrice: '€100/Year (Save €20)',
+            features: ['Connect to 1 Global', 'Thermostat + up to 5 TRVs'],
+            extras: ['No Dashboard', 'No 24/7 Customer Service']
         },
         Standard: {
-            name: "Standard",
-            price: "€20 / month",
-            features: [
-                "1 IOT Hub + 5 TRVs",
-                "Connect up to 20 Devices",
-                "Access Dashboard",
-                "24/7 Customer Support"
-            ]
+            name: 'Standard',
+            description: 'Essential Features',
+            price: '€20/Month',
+            yearlyPrice: '€200/Year (Save €40)',
+            features: ['Connect to 1 Global', 'Thermostat + up to 10 TRVs', 'Hardware integration with local AI optimization', 'Dashboard', '24/7 Customer Service'],
+            // extras: [''],
         },
         Premium: {
-            name: "Premium",
-            price: "€30 / month",
-            features: [
-                "2 IOT Hubs + 10 TRVs",
-                "Connect up to 30 Devices",
-                "Access Dashboard",
-                "24/7 Customer Support"
-            ]
+            name: 'Premium',
+            description: 'Premium Features',
+            price: '€30/Month',
+            yearlyPrice: '€300/Year (Save €60)',
+            features: ['Connect to 1 Global', 'Thermostat + up to 20 TRVs', 'Full Optimization (Local/Global)', 'Dashboard', '24/7 Customer Service'],
+            // extras: [''],
         }
     };
 
@@ -52,20 +50,31 @@ const SelectKitsPlans = () =>
     const kitDetails = {
         1: {
             name: "Kit 1",
-            description: "Ideal for Home and Small Business.",
-            contents: "1 Hub + 1 TRV + 1 Global Thermostat",
+            description: "Ideal for Homes",
+            contents: [
+                { text: "1 x Hub", image: susnetHub },
+                { text: "1 x Global Thermostat", image: susnetImage }
+            ],
             price: "€330"
         },
         2: {
             name: "Kit 2",
-            description: "Home and large Business.",
-            contents: "1 Hub + 10 TRVs + 2 Global Thermostats",
+            description: "Homes and Small Businesses",
+            contents: [
+                { text: "1 x Hub", image: susnetHub },
+                { text: "4 x TRVs", image: susnetKit },
+                { text: "1 x Global Thermostat", image: susnetImage }
+            ],
             price: "€750"
         },
         3: {
             name: "Kit 3",
-            description: "Custom kit for large companies.",
-            contents: "Customized for business and companies.",
+            description: "Custom for Large Companies",
+            contents: [
+                { text: "Customized # of Hub", image: susnetHub },
+                { text: "Customized # of TRVs", image: susnetKit },
+                { text: "Customized # of Global Thermostat", image: susnetImage }
+            ],
             price: "€900"
         }
     };
