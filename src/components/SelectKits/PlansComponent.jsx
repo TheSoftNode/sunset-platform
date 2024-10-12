@@ -1,6 +1,6 @@
 import { CheckIcon, XMarkIcon } from '@heroicons/react/16/solid';
 import { motion } from 'framer-motion';
-import special from "../../assets/images/special2.png"
+import special from "../../assets/images/special2.png";
 
 const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
 {
@@ -68,7 +68,7 @@ const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
                         description: 'Entry Level Features',
                         price: '€10/Month',
                         yearlyPrice: '€100/Year (Save €20)',
-                        features: ['Connect to 1 Global', 'Thermostat + up to 5 TRVs'],
+                        features: ['Connect to 1 Global Thermostat + up to 5 TRVs'],
                         extras: ['No Dashboard', 'No 24/7 Customer Service'],
                         isSelected: isSelected('Basic')
                     },
@@ -77,8 +77,8 @@ const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
                         description: 'Essential Features',
                         price: '€20/Month',
                         yearlyPrice: '€200/Year (Save €40)',
-                        features: ['Connect to 1 Global', 'Thermostat + up to 10 TRVs', 'Hardware integration with local AI optimization', 'Dashboard'],
-                        extras: ['24/7 Customer Service'],
+                        features: ['Connect to 1 Global Thermostat + up to 10 TRVs', 'Hardware integration with local AI optimization', 'Dashboard', '24/7 Customer Service'],
+                        // extras: ['24/7 Customer Service'],
                         isSelected: isSelected('Standard')
                     },
                     {
@@ -86,14 +86,87 @@ const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
                         description: 'Premium Features',
                         price: '€30/Month',
                         yearlyPrice: '€300/Year (Save €60)',
-                        features: ['Connect to 1 Global', 'Thermostat + up to 20 TRVs', 'Full Optimization (Local/Global)', 'Dashboard'],
-                        extras: ['24/7 Customer Service'],
+                        features: ['Connect to 1 Global Thermostat + up to 20 TRVs', 'Full Optimization (Local/Global)', 'Dashboard', '24/7 Customer Service'],
+                        // extras: ['24/7 Customer Service'],
                         isSelected: isSelected('Premium')
                     }
                 ].map((plan, idx) => (
+                    // <motion.div
+                    //     key={idx}
+                    //     className={`rounded-lg p-4 shadow-lg flex-1 cursor-pointer ${plan.isSelected ? 'bg-white' : 'bg-gray-100'} border border-gray-200 relative`}
+                    //     onClick={() => handleCardClick(plan.name)}
+                    //     variants={cardVariants}
+                    //     whileHover={{
+                    //         y: -5,
+                    //         boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                    //         borderColor: "rgba(59, 130, 246, 0.5)",
+                    //         transition: {
+                    //             type: "spring",
+                    //             stiffness: 300,
+                    //             damping: 20
+                    //         }
+                    //     }}
+                    //     whileTap={{ scale: 0.98 }}
+                    // >
+                    //     <SpecialOffer />
+                    //     <motion.div
+                    //         className="bg-cyan-700 w-24 mx-auto text-white text-center text-sm prose font-semibold rounded-full px-2 py-1 mb-2 inline-block"
+                    //         whileHover={{ scale: 1.05 }}
+                    //     >
+                    //         {plan.name}
+                    //     </motion.div>
+                    //     <h3 className="text-sm text-center font-semibold prose mb-1">{plan.description}</h3>
+                    //     <div className="mb-2 flex flex-col justify-center items-center">
+                    //         <p className="font-bold prose text-red-600 text-sm">{plan.price}</p>
+                    //         <p className="text-sm prose font-bold">or</p>
+                    //         <p className="text-xs mb-1 prose font-bold text-green-600">{plan.yearlyPrice}</p>
+                    //     </div>
+                    //     <ul className="text-sm mb-3">
+                    //         {plan.features.map((feature, i) => (
+                    //             <motion.li
+                    //                 key={i}
+                    //                 className="flex items-center mb-1 prose text-xs font-semibold"
+                    //                 initial={{ opacity: 0, x: -10 }}
+                    //                 animate={{ opacity: 1, x: 0 }}
+                    //                 transition={{ delay: i * 0.1 }}
+                    //             >
+                    //                 <CheckIcon className="w-4 h-4 text-green-800 mr-1 mb-2 flex-shrink-0" />
+                    //                 <span>{feature}</span>
+                    //             </motion.li>
+                    //         ))}
+                    //         {plan?.extras?.map((extra, i) => (
+                    //             <motion.li
+                    //                 key={i}
+                    //                 className="flex items-center mb-2 prose text-xs font-semibold"
+                    //                 initial={{ opacity: 0, x: -10 }}
+                    //                 animate={{ opacity: 1, x: 0 }}
+                    //                 transition={{ delay: (plan.features.length + i) * 0.1 }}
+                    //             >
+                    //                 <XMarkIcon className="w-4 h-4 text-red-500 mr-1 flex-shrink-0" />
+                    //                 <span>{extra}</span>
+                    //             </motion.li>
+                    //         ))}
+                    //     </ul>
+                    //     <motion.button
+                    //         className={`w-full py-1 rounded-lg my-auto text-white font-bold text-xs ${plan.isSelected ? 'bg-cyan-600' : 'bg-blue-500'}`}
+                    //         onClick={(e) =>
+                    //         {
+                    //             e.stopPropagation(); // Prevent the card click event from firing
+                    //             handleCardClick(plan.name);
+                    //         }}
+                    //         whileHover={{
+                    //             scale: 1.03,
+                    //             backgroundColor: plan.isSelected ? '#0891b2' : '#3b82f6',
+                    //             transition: { duration: 0.2 }
+                    //         }}
+                    //         whileTap={{ scale: 0.97 }}
+                    //     >
+                    //         {plan.isSelected ? 'Selected' : 'Select'}
+                    //     </motion.button>
+                    // </motion.div>
                     <motion.div
                         key={idx}
-                        className={`rounded-lg p-4 shadow-lg flex-1 cursor-pointer ${plan.isSelected ? 'bg-white' : 'bg-gray-100'} border border-gray-200 relative`}
+                        className={`rounded-lg p-4 shadow-lg flex-1 cursor-pointer ${plan.isSelected ? 'bg-white' : 'bg-gray-100'} border border-gray-200 relative flex flex-col`}
                         onClick={() => handleCardClick(plan.name)}
                         variants={cardVariants}
                         whileHover={{
@@ -109,46 +182,48 @@ const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
                         whileTap={{ scale: 0.98 }}
                     >
                         <SpecialOffer />
-                        <motion.div
-                            className="bg-cyan-700 w-24 mx-auto text-white text-center text-sm prose font-semibold rounded-full px-2 py-1 mb-2 inline-block"
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            {plan.name}
-                        </motion.div>
-                        <h3 className="text-sm text-center font-semibold prose mb-1">{plan.description}</h3>
-                        <div className="mb-2 flex flex-col justify-center items-center">
-                            <p className="font-bold prose text-red-600 text-sm">{plan.price}</p>
-                            <p className="text-sm prose font-bold">or</p>
-                            <p className="text-xs mb-1 prose font-bold text-green-600">{plan.yearlyPrice}</p>
+                        <div className="flex-grow">
+                            <motion.div
+                                className="bg-cyan-700 w-24 mx-auto text-white text-center text-sm prose font-semibold rounded-full px-2 py-1 mb-2 inline-block"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                {plan.name}
+                            </motion.div>
+                            <h3 className="text-sm text-center font-semibold prose mb-1">{plan.description}</h3>
+                            <div className="mb-2 flex flex-col justify-center items-center">
+                                <p className="font-bold prose text-red-600 text-sm">{plan.price}</p>
+                                <p className="text-sm prose font-bold">or</p>
+                                <p className="text-xs mb-1 prose font-bold text-green-600">{plan.yearlyPrice}</p>
+                            </div>
+                            <ul className="text-sm mb-3">
+                                {plan.features.map((feature, i) => (
+                                    <motion.li
+                                        key={i}
+                                        className="flex items-center mb-1 prose text-xs font-semibold"
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.1 }}
+                                    >
+                                        <CheckIcon className="w-4 h-4 text-green-800 mr-1 mb-2 flex-shrink-0" />
+                                        <span>{feature}</span>
+                                    </motion.li>
+                                ))}
+                                {plan?.extras?.map((extra, i) => (
+                                    <motion.li
+                                        key={i}
+                                        className="flex items-center mb-2 prose text-xs font-semibold"
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: (plan.features.length + i) * 0.1 }}
+                                    >
+                                        <XMarkIcon className="w-4 h-4 text-red-500 mr-1 flex-shrink-0" />
+                                        <span>{extra}</span>
+                                    </motion.li>
+                                ))}
+                            </ul>
                         </div>
-                        <ul className="text-sm mb-3">
-                            {plan.features.map((feature, i) => (
-                                <motion.li
-                                    key={i}
-                                    className="flex items-center mb-1 prose text-xs font-semibold"
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
-                                >
-                                    <CheckIcon className="w-4 h-4 text-green-800 mr-1 flex-shrink-0" />
-                                    <span>{feature}</span>
-                                </motion.li>
-                            ))}
-                            {plan.extras.map((extra, i) => (
-                                <motion.li
-                                    key={i}
-                                    className="flex items-center mb-1 prose text-xs font-semibold"
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: (plan.features.length + i) * 0.1 }}
-                                >
-                                    <XMarkIcon className="w-4 h-4 text-red-500 mr-1 flex-shrink-0" />
-                                    <span>{extra}</span>
-                                </motion.li>
-                            ))}
-                        </ul>
                         <motion.button
-                            className={`w-full py-1 rounded-lg text-white font-bold text-xs ${plan.isSelected ? 'bg-cyan-600' : 'bg-blue-500'}`}
+                            className={`w-full py-1 rounded-lg mt-auto text-white font-bold text-xs ${plan.isSelected ? 'bg-cyan-600' : 'bg-blue-500'}`}
                             onClick={(e) =>
                             {
                                 e.stopPropagation(); // Prevent the card click event from firing

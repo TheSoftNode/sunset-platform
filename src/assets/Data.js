@@ -52,7 +52,7 @@ export const planDetails = {
         description: 'Entry Level Features',
         price: '€10/Month',
         yearlyPrice: '€100/Year (Save €20)',
-        features: ['Connect to 1 Global', 'Thermostat + up to 5 TRVs'],
+        features: ['Connect to 1 Global Thermostat + up to 5 TRVs'],
         extras: ['No Dashboard', 'No 24/7 Customer Service']
     },
     Standard: {
@@ -60,7 +60,7 @@ export const planDetails = {
         description: 'Essential Features',
         price: '€20/Month',
         yearlyPrice: '€200/Year (Save €40)',
-        features: ['Connect to 1 Global', 'Thermostat + up to 10 TRVs', 'Hardware integration with local AI optimization', 'Dashboard', '24/7 Customer Service'],
+        features: ['Connect to 1 Global Thermostat + up to 10 TRVs', 'Hardware integration with local AI optimization', 'Dashboard', '24/7 Customer Service'],
         // extras: [''],
     },
     Premium: {
@@ -68,7 +68,7 @@ export const planDetails = {
         description: 'Premium Features',
         price: '€30/Month',
         yearlyPrice: '€300/Year (Save €60)',
-        features: ['Connect to 1 Global', 'Thermostat + up to 20 TRVs', 'Full Optimization (Local/Global)', 'Dashboard', '24/7 Customer Service'],
+        features: ['Connect to 1 Global Thermostat + up to 20 TRVs', 'Full Optimization (Local/Global)', 'Dashboard', '24/7 Customer Service'],
         // extras: [''],
     }
 };
