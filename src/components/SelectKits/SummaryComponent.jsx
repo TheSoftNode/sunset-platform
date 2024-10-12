@@ -56,7 +56,7 @@ const SummaryComponent = ({ selectedKit, selectedPlan, kitDetails, planDetails, 
                     <ArrowLeftIcon className="w-5 h-5 mr-2 " />
                     Back
                 </motion.button>
-                <h2 className="font-bold text-sm sm:text-xl prose lg:text-3xl text-white">Your Selection Summary</h2>
+                <h2 className="font-bold text-lg sm:text-xl prose lg:text-3xl text-white">Your Selection Summary</h2>
             </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-8 w-full sm:max-w-3xl">
@@ -119,7 +119,7 @@ const SummaryComponent = ({ selectedKit, selectedPlan, kitDetails, planDetails, 
                         <p className="text-xs prose font-semibold text-center text-green-600 mb-6">{selectedPlanDetails.yearlyPrice}</p>
                     </div>
 
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                         {selectedPlanDetails.features.map((feature, index) => (
                             <li key={index} className="flex items-center text-xs prose font-bold bg-gray-50 py-1 px-2 rounded-lg">
                                 <CheckIcon className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
