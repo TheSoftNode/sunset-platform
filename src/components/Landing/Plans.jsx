@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, Zap } from 'lucide-react';
+import { CheckIcon, XMarkIcon } from '@heroicons/react/16/solid';
+import specialOfferImage from "../../assets/images/special3.png";
 
 const PricingPlans = () =>
 {
@@ -8,224 +9,245 @@ const PricingPlans = () =>
 
   const homePlans = [
     {
-      title: 'BASIC',
-      monthlyPrice: '$4.99',
-      yearlyPrice: '$49.99',
-      features: ['50 GB Bandwidth', '24-hour support'],
-      unavailableFeatures: ['Finance Analyzing', 'Customer Management'],
-      color: 'from-teal-400 to-teal-600',
-      textColor: 'text-teal-600',
-      featured: false,
+      name: 'Basic',
+      description: 'Entry Level Features',
+      monthlyPrice: '€10/Month',
+      yearlyPrice: '€100/Year (Save €20)',
+      features: ['Connect to 1 Global Thermostat + up to 5 TRVs'],
+      extras: ['No Dashboard', 'No 24/7 Customer Service'],
+      color: 'bg-cyan-700',
     },
     {
-      title: 'STANDARD',
-      monthlyPrice: '$9.99',
-      yearlyPrice: '$99.99',
-      features: ['100 GB Bandwidth', 'Finance Analyzing', '24-hour support'],
-      unavailableFeatures: ['Customer Management'],
-      color: 'from-cyan-400 to-cyan-600',
-      textColor: 'text-cyan-600',
-      featured: true,
+      name: 'Standard',
+      description: 'Essential Features',
+      monthlyPrice: '€20/Month',
+      yearlyPrice: '€200/Year (Save €40)',
+      features: [
+        'Connect to 1 Global Thermostat + up to 10 TRVs',
+        'Hardware integration with local AI optimization',
+        'Dashboard',
+        '24/7 Customer Service'
+      ],
+      extras: [],
+      color: 'bg-cyan-700',
     },
     {
-      title: 'PREMIUM',
-      monthlyPrice: '$14.99',
-      yearlyPrice: '$149.99',
-      features: ['150 GB Bandwidth', 'Finance Analyzing', '24-hour support', 'Customer Management'],
-      unavailableFeatures: [],
-      color: 'from-blue-400 to-blue-600',
-      textColor: 'text-blue-600',
-      featured: false,
+      name: 'Premium',
+      description: 'Premium Features',
+      monthlyPrice: '€30/Month',
+      yearlyPrice: '€300/Year (Save €60)',
+      features: [
+        'Connect to 1 Global Thermostat + up to 20 TRVs',
+        'Full Optimization (Local/Global)',
+        'Dashboard',
+        '24/7 Customer Service'
+      ],
+      extras: [],
+      color: 'bg-cyan-700',
     },
   ];
 
   const businessPlans = [
     {
-      title: 'BASIC',
-      monthlyPrice: '$4.99',
-      yearlyPrice: '$49.99',
-      features: ['50 GB Bandwidth', '24-hour support'],
-      unavailableFeatures: ['Finance Analyzing', 'Customer Management'],
-      color: 'from-teal-400 to-teal-600',
-      textColor: 'text-teal-600',
-      featured: false,
+      name: 'Basic',
+      description: 'Entry Level Features',
+      monthlyPrice: '€10/Month',
+      yearlyPrice: '€100/Year (Save €20)',
+      features: ['Connect to 1 Global Thermostat + up to 5 TRVs'],
+      extras: ['No Dashboard', 'No 24/7 Customer Service'],
+      color: 'bg-cyan-700',
     },
     {
-      title: 'STANDARD',
-      monthlyPrice: '$9.99',
-      yearlyPrice: '$99.99',
-      features: ['100 GB Bandwidth', 'Finance Analyzing', '24-hour support'],
-      unavailableFeatures: ['Customer Management'],
-      color: 'from-cyan-400 to-cyan-600',
-      textColor: 'text-cyan-600',
-      featured: true,
+      name: 'Standard',
+      description: 'Essential Features',
+      monthlyPrice: '€20/Month',
+      yearlyPrice: '€200/Year (Save €40)',
+      features: [
+        'Connect to 1 Global Thermostat + up to 10 TRVs',
+        'Hardware integration with local AI optimization',
+        'Dashboard',
+        '24/7 Customer Service'
+      ],
+      extras: [],
+      color: 'bg-cyan-700',
     },
     {
-      title: 'PREMIUM',
-      monthlyPrice: '$14.99',
-      yearlyPrice: '$149.99',
-      features: ['150 GB Bandwidth', 'Finance Analyzing', '24-hour support', 'Customer Management'],
-      unavailableFeatures: [],
-      color: 'from-blue-400 to-blue-600',
-      textColor: 'text-blue-600',
-      featured: false,
+      name: 'Premium',
+      description: 'Premium Features',
+      monthlyPrice: '€30/Month',
+      yearlyPrice: '€300/Year (Save €60)',
+      features: [
+        'Connect to 1 Global Thermostat + up to 20 TRVs',
+        'Full Optimization (Local/Global)',
+        'Dashboard',
+        '24/7 Customer Service'
+      ],
+      extras: [],
+      color: 'bg-cyan-700',
     },
   ];
 
   const plans = isHome ? homePlans : businessPlans;
 
-  const handleToggle = () =>
-  {
-    setIsHome(!isHome);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
+
+  const SpecialOffer = () => (
+    <div className="absolute -top-6 -right-7 w-24 h-24 rotate-12">
+      <img src={specialOfferImage} alt="Special Offer" />
+    </div>
+  );
+
   return (
-    <section className="relative z-10 py-20 px-4 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-      <div className="container mx-auto text-center relative">
+    <section className="w-full bg-gradient-to-br from-gray-50 to-teal-50 gap-y-6 px-3 flex flex-col items-center justify-center pt-10 pb-14">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="absolute inset-0 -z-10"
+      >
+        <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#4FD1C5" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#0694A2" stopOpacity="0.05" />
+            </linearGradient>
+          </defs>
+          <path d="M0 0 Q 50 50 100 0 Q 50 50 0 100 Z" fill="url(#bg-gradient)" />
+        </svg>
+      </motion.div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl md:text-4xl font-bold mb-2 prose text-cyan-700"
+      >
+        Choose Your Perfect Plan
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="mb-6 text-sm font-bold prose text-gray-700 max-w-2xl mx-auto text-center"
+      >
+        Tailored solutions for home and business. Flexible, powerful, and designed to grow with you.
+      </motion.p>
+
+      {/* Toggle for Home/Business */}
+      <div className="flex justify-center items-center mb-12">
+        <span className={`mr-4 text-lg ${isHome ? 'font-semibold text-cyan-700' : 'text-gray-500'}`}>Home</span>
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0 -z-10"
+          onClick={() => setIsHome(!isHome)}
+          className={`relative inline-flex items-center h-8 w-16 rounded-full cursor-pointer ${isHome ? 'bg-cyan-600' : 'bg-cyan-600'}`}
+          whileTap={{ scale: 0.95 }}
         >
-          <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4FD1C5" stopOpacity="0.1" />
-                <stop offset="100%" stopColor="#0694A2" stopOpacity="0.1" />
-              </linearGradient>
-            </defs>
-            <path d="M0 0 Q 50 50 100 0 Q 50 50 0 100 Z" fill="url(#bg-gradient)" />
-          </svg>
+          <motion.span
+            layout
+            transition={{
+              type: "spring",
+              stiffness: 700,
+              damping: 30
+            }}
+            className="inline-block w-6 h-6 bg-white rounded-full shadow-lg"
+            animate={{
+              translateX: isHome ? '10%' : '150%',
+            }}
+          />
         </motion.div>
+        <span className={`ml-4 text-lg ${!isHome ? 'font-semibold text-cyan-700' : 'text-gray-500'}`}>Business</span>
+      </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
-        >
-          Choose Your Perfect Plan
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-12 text-lg font-medium text-gray-700 max-w-2xl mx-auto"
-        >
-          Tailored solutions for home and business. Flexible, powerful, and designed to grow with you.
-        </motion.p>
-
-        {/* Toggle for Home/Business */}
-        <div className="flex justify-center items-center mb-16">
-          <span className={`mr-4 text-lg ${isHome ? 'font-semibold text-blue-600' : 'text-gray-600'}`}>Home</span>
-          <motion.div
-            onClick={handleToggle}
-            className={`relative inline-flex items-center h-8 w-16 rounded-full cursor-pointer ${isHome ? 'bg-blue-600' : 'bg-cyan-600'
-              }`}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span
-              layout
-              transition={{
-                type: "spring",
-                stiffness: 700,
-                damping: 30
+      {/* Pricing Cards */}
+      <motion.div
+        className="flex flex-col md:flex-row gap-12 w-full max-w-6xl px-4 justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatePresence>
+          {plans.map((plan, idx) => (
+            <motion.div
+              key={idx}
+              className="rounded-lg p-6 shadow-lg flex-1 bg-white border border-teal-200 relative flex flex-col max-w-sm w-full"
+              variants={cardVariants}
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                borderColor: "rgba(6, 182, 212, 0.5)",
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }
               }}
-              className="inline-block w-6 h-6 bg-white rounded-full shadow-lg"
-              animate={{
-                translateX: isHome ? '10%' : '150%',
-                rotate: isHome ? 0 : 180,
-              }}
-            />
-          </motion.div>
-          <span className={`ml-4 text-lg ${!isHome ? 'font-semibold text-cyan-600' : 'text-gray-600'}`}>Business</span>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-2 lg:px-0">
-          <AnimatePresence>
-            {plans.map((plan, index) => (
-              <motion.div
-                key={plan.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-white rounded-2xl p-8 shadow-xl relative overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl ${plan.featured ? 'border-4 border-cyan-400' : ''
-                  }`}
-                whileHover={{
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                }}
-              >
-                {plan.featured && (
-                  <div className="absolute top-0 right-0 bg-cyan-400 text-white py-1 px-4 rounded-bl-lg font-semibold text-sm flex items-center">
-                    <Zap className="w-4 h-4 mr-1" /> Most Popular
-                  </div>
-                )}
-                {/* Plan Label */}
-                <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${plan.color}`} />
-                <h3 className={`text-2xl font-bold mb-4 ${plan.textColor}`}>
-                  <span className="relative">
-                    {plan.title}
-                    <motion.span
-                      className="absolute -bottom-1 left-0 w-full h-1 bg-current"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                    />
-                  </span>
-                </h3>
-
-                {/* Pricing */}
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">
-                    {isHome ? plan.monthlyPrice : plan.yearlyPrice}
-                  </span>
-                  <span className="text-gray-600 text-lg"> / {isHome ? 'month' : 'year'}</span>
+            >
+              <SpecialOffer />
+              <div className="flex-grow">
+                <motion.div
+                  className={`${plan.color} w-24 mx-auto text-white text-center text-sm font-semibold rounded-full px-2 py-1 mb-3 inline-block`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {plan.name}
+                </motion.div>
+                <h3 className="text-lg text-center font-semibold text-gray-800 mb-2">{plan.description}</h3>
+                <div className="mb-4 flex flex-col justify-center items-center">
+                  <p className="font-bold text-red-600 text-2xl">{plan.monthlyPrice}</p>
+                  <p className="text-sm font-medium text-gray-600">or</p>
+                  <p className="text-sm font-bold text-green-600">{plan.yearlyPrice}</p>
                 </div>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2">
                   {plan.features.map((feature, i) => (
                     <motion.li
                       key={i}
-                      initial={{ opacity: 0, x: -20 }}
+                      className="flex items-center text-sm font-medium text-gray-700"
+                      initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.1 }}
-                      className="text-sm text-gray-700 flex items-center"
+                      transition={{ delay: i * 0.1 }}
                     >
-                      <Check className="w-5 h-5 mr-2 text-green-500" />
-                      {feature}
+                      <CheckIcon className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
+                      <span>{feature}</span>
                     </motion.li>
                   ))}
-                  {plan.unavailableFeatures.map((feature, i) => (
+                  {plan.extras.map((extra, i) => (
                     <motion.li
                       key={i}
-                      initial={{ opacity: 0, x: -20 }}
+                      className="flex items-center text-sm font-medium text-gray-500"
+                      initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: (plan.features.length + i) * 0.1 }}
-                      className="text-sm text-gray-400 flex items-center"
+                      transition={{ delay: (plan.features.length + i) * 0.1 }}
                     >
-                      <X className="w-5 h-5 mr-2 text-red-500" />
-                      {feature}
+                      <XMarkIcon className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
+                      <span>{extra}</span>
                     </motion.li>
                   ))}
                 </ul>
-
-                {/* Buy Now Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full py-3 px-4 text-white rounded-lg transition duration-300 bg-gradient-to-r ${plan.color} hover:shadow-lg`}
-                >
-                  Get Started
-                </motion.button>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 };
