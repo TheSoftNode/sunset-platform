@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Data } from '../../assets/Data';
+import { planDetails } from '../../assets/Data';
+import { kitDetails } from '../../assets/Data';
 import robot3 from '../../assets/images/robot3.jpeg';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, RotateCcw, X } from 'lucide-react';
 import QuizSection from '../Landing/QuizSection';
+import SummaryComponent from '../SelectKits/SummaryComponent';
 
 const QuizBrowsePage = () =>
 {
@@ -14,7 +17,112 @@ const QuizBrowsePage = () =>
   const [close, setClose] = useState(false);
   const [notSelected, setNotSelected] = useState(false);
   const [showQuizSection, setShowQuizSection] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
+  const [recommendation, setRecommendation] = useState({ kit: null, plan: null });
+
   const data = Data;
+
+
+  const scoringMatrix = {
+    kit: {
+      1: { A: 3, B: 1, C: 0, D: 0 },
+      2: { A: 1, B: 3, C: 2, D: 1 },
+      3: { A: 0, B: 1, C: 3, D: 3 }
+    },
+    plan: {
+      Basic: { A: 3, B: 1, C: 0, D: 0 },
+      Standard: { A: 1, B: 3, C: 2, D: 1 },
+      Premium: { A: 0, B: 1, C: 3, D: 3 }
+    }
+  };
+
+  const questionWeights = [2, 2, 1, 1, 1]; // Adjust weights based on question importance
+
+  const determineRecommendation = () =>
+  {
+    const answers = selectedOptions.map(option =>
+    {
+      if (option === 1) return 'A';
+      if (option === 2) return 'B';
+      if (option === 3) return 'C';
+      if (option === 4) return 'D';
+      return null;
+    });
+
+    const calculateScore = (category) =>
+    {
+      return Object.keys(scoringMatrix[category]).reduce((scores, item) =>
+      {
+        scores[item] = answers.reduce((total, answer, index) =>
+        {
+          return total + (scoringMatrix[category][item][answer] || 0) * questionWeights[index];
+        }, 0);
+        return scores;
+      }, {});
+    };
+
+    const kitScores = calculateScore('kit');
+    const planScores = calculateScore('plan');
+
+    const recommendedKit = Object.keys(kitScores).reduce((a, b) => kitScores[a] > kitScores[b] ? a : b);
+    const recommendedPlan = Object.keys(planScores).reduce((a, b) => planScores[a] > planScores[b] ? a : b);
+
+    return { kit: recommendedKit, plan: recommendedPlan };
+  };
+
+
+  // const determineRecommendation = () =>
+  // {
+  //   console.log("Selected Options:", selectedOptions);
+
+  //   const answers = selectedOptions.map(option =>
+  //   {
+  //     if (option === 1) return 'A';
+  //     if (option === 2) return 'B';
+  //     if (option === 3) return 'C';
+  //     if (option === 4) return 'D';
+  //     return null;
+  //   });
+
+  //   console.log("Mapped Answers:", answers);
+
+  //   if (answers.includes(null))
+  //   {
+  //     console.log("Warning: Some questions are unanswered");
+  //     return { kit: null, plan: null };
+  //   }
+
+  //   if (answers[0] === 'A' && answers[1] === 'A' && answers[2] === 'A' && answers[3] === 'A' && answers[4] === 'A')
+  //   {
+  //     return { kit: '1', plan: 'Basic' };
+  //   } else if (answers[0] === 'B' && answers[1] === 'B' && answers[2] === 'B' && answers[3] === 'B' && answers[4] === 'B')
+  //   {
+  //     return { kit: '2', plan: 'Standard' };
+  //   } else if (answers[0] === 'C' && answers[1] === 'C' && answers[2] === 'C' && answers[3] === 'B' && answers[4] === 'C')
+  //   {
+  //     return { kit: '3', plan: 'Premium' };
+  //   } else if (answers[0] === 'D' && answers[1] === 'D' && answers[2] === 'C' && answers[3] === 'C' && answers[4] === 'C')
+  //   {
+  //     return { kit: '3', plan: 'Premium' };
+  //   } else if (answers[0] === 'A' && answers[1] === 'A' && (answers[2] === 'B' || answers[2] === 'C') && answers[3] === 'B' && answers[4] === 'C')
+  //   {
+  //     return { kit: '2', plan: 'Premium' };
+  //   } else if (answers[0] === 'C' && answers[1] === 'A' && answers[2] === 'A' && answers[3] === 'B' && answers[4] === 'B')
+  //   {
+  //     return { kit: '2', plan: 'Standard' };
+  //   } else if (answers[0] === 'B' && answers[1] === 'D' && answers[2] === 'C' && answers[3] === 'A' && answers[4] === 'C')
+  //   {
+  //     return { kit: '3', plan: 'Premium' };
+  //   } else if (answers[0] === 'C' && answers[1] === 'B' && answers[2] === 'A' && answers[3] === 'A' && answers[4] === 'B')
+  //   {
+  //     return { kit: '2', plan: 'Standard' };
+  //   } else
+  //   {
+  //     console.log("No specific match found, using default recommendation");
+  //     return { kit: '2', plan: 'Standard' };
+  //   }
+  // };
+
 
   useEffect(() =>
   {
@@ -22,23 +130,41 @@ const QuizBrowsePage = () =>
     setProgress((answeredQuestions / data.length) * 100);
   }, [selectedOptions, data.length]);
 
-  const next = () => {
-    if (selectedOptions[index] === null) {
+
+  const next = () =>
+  {
+    if (selectedOptions[index] === null)
+    {
       setNotSelected(true);
-      if (index === data.length - 1) {
+      if (index === data.length - 1)
+      {
         toast.error('Please answer the final question before submitting.');
-      } else {
+      } else
+      {
         toast.error('Please select an option before moving to the next question.');
       }
       return;
     }
-  
-    if (index < data.length - 1) {
+
+    if (index < data.length - 1)
+    {
       setIndex(index + 1);
-    } else {
+    } else
+    {
+      const recommendation = determineRecommendation();
+      setRecommendation(recommendation);
+      setShowSummary(true);
       toast.success("Congratulations! You have completed the quiz.");
     }
+
+    // if (index < data.length - 1) {
+    //   setIndex(index + 1);
+    // } else {
+    //   toast.success("Congratulations! You have completed the quiz.");
+    // }
   };
+
+
   const back = () =>
   {
     if (index > 0)
@@ -96,6 +222,19 @@ const QuizBrowsePage = () =>
   {
     setClose(true);
   };
+
+  if (showSummary)
+  {
+    return <SummaryComponent
+      selectedKit={recommendation.kit}
+      selectedPlan={recommendation.plan}
+      kitDetails={kitDetails}
+      planDetails={planDetails}
+      onBack={() => setShowSummary(false)}
+    />;
+
+    console.log(recommendation)
+  }
 
   if (showQuizSection || close)
   {
