@@ -16,11 +16,11 @@ const Hero = () =>
         transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
       >
         {/* Modern gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/70 to-transparent"></div>
       </motion.div>
 
       {/* Content (Text and Buttons) */}
-      <div className="relative gap-y-6 z-10 flex flex-col items-center justify-center h-full px-4 text-center text-white">
+      <div className="relative gap-y-7  sm:gap-y-8 z-10 flex flex-col items-center justify-center h-full px-4 text-center text-white">
         <motion.h1
           className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           initial={{ opacity: 0, y: -50 }}
@@ -33,7 +33,7 @@ const Hero = () =>
           </span>
         </motion.h1>
         <motion.p
-          className="text-xl sm:text-2xl lg:text-3xl max-w-3xl mb-10 text-gray-300 leading-relaxed"
+          className="text-xl prose  sm:text-2xl lg:text-3xl max-w-3xl mb-10 text-gray-300 leading-relaxed"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
