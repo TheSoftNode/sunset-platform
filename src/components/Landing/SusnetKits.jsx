@@ -1,91 +1,115 @@
-
+// import React from 'react';
+// import susnetHub from "../../assets/images/susnet_hub.png";
+// import susnetKit from "../../assets/images/susnet_kit2.png";
+// import susnetImage from "../../assets/images/susnet_image.png";
 
 // const SusnetKits = () =>
 // {
+//   const renderKit = (title, description, contents, price) => (
+//     <div className="bg-white rounded-xl p-6 shadow-lg overflow-hidden relative w-full max-w-xs">
+//       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+//       <h3 className="text-2xl font-bold text-center text-cyan-700 mb-4">
+//         {title}
+//       </h3>
+//       <p className="text-lg  prose font-semibold text-center text-gray-600 mb-6">{description}</p>
+//       <ul className="space-y-3 mb-6">
+//         {contents.map((item, index) => (
+//           <li key={index} className="flex items-center text-sm bg-gray-50 px-2 py-0.5 rounded-lg">
+//             <img
+//               src={item.image}
+//               alt={`Icon for ${item.text}`}
+//               className="w-8 h-8 mr-3 object-cover"
+//             />
+//             <span className="font-semibold text-sm">{item.text}</span>
+//           </li>
+//         ))}
+//       </ul>
+//       <p className="text-center font-bold text-xl text-red-600">{price}</p>
+//     </div>
+//   );
+
 //   return (
-//     <div className="w-full bg-gray-50 h-[400px] ">
-//       <h1 className=" text-center font-bold text-4xl font-serif mt-10">Susnet Kits</h1>
+//     <div className="w-full bg-gradient-to-br from-gray-50 to-teal-50 py-16 px-6">
+//       <h2 className="font-bold font-serif text-4xl text-center text-cyan-700 mb-12">
+//         Susnet Kits
+//       </h2>
 
-//       <div className='flex justify-between mt-14 px-2 ml-10 overflow-x-hidden'>
-//         <div className='col-4 px-16' >
-
-//           <h4 className='font-bold text-center text-4xl text-cyan-600 hover:text-orange-600 font-serif mr-6 pr-6 '>Kit 1</h4>
-//           <p className='text-sm  font-bold text-center mt-3 font-sans'> Ideal for Home and Small Business.</p>
-//           <p className=" text-sm text-center mt-2 font-sans text-gray-500" >1 Hub + 1TRV +1 Global Thermostat
-//           </p>
-//           <p className="mt-2"><span className="font-bold text-lg ml-16 text-red-600 "> Price: €330</span></p>
-
-//         </div>
-
-
-//         <div className='col-4 px-16' >
-
-//           <h4 className='font-bold text-center text-4xl text-cyan-600   hover:text-orange-600 font-serif mr-6 pr-6'>Kit 2</h4>
-//           <p className='text-sm font-bold text-center  mt-3 font-sans'> Home and large Business.</p>
-//           <p className=" text-sm text-center mt-2 font-sans text-gray-500" >1 Hub + 10 TRV + 2 Global Thermostat
-//           </p>
-//           <p className="mt-2"><span className="font-bold text-lg ml-16 text-red-600"> Price: €750</span></p>
-//         </div>
-
-//         <div className='col-4 px-16' >
-
-//           <h4 className='font-bold text-center text-4xl text-cyan-600  hover:text-orange-600 font-serif mr-6 pr-6'>Kit 3</h4>
-//           <p className='text-sm  font-bold text-center mt-3 font-sans'> Custom kit for large companies.</p>
-//           <p className=" text-sm text-center mt-2 font-sans text-gray-500" >Customized for business and companies.
-//           </p>
-//           <p className="mt-2"><span className="font-bold text-lg text-red-600 ml-20"> Price : €900</span></p>
-//         </div>
+//       <div className="flex flex-wrap justify-center gap-8">
+//         {renderKit("Kit 1", "Ideal for Homes", [
+//           { text: "1 x Hub", image: susnetHub },
+//           { text: "1 x Global Thermostat", image: susnetImage }
+//         ], "€330")}
+//         {renderKit("Kit 2", "Homes and Small Businesses", [
+//           { text: "1 x Hub", image: susnetHub },
+//           { text: "4 x TRVs", image: susnetKit },
+//           { text: "1 x Global Thermostat", image: susnetImage }
+//         ], "€750")}
+//         {renderKit("Kit 3", "Custom for Large Companies", [
+//           { text: "Customized # of Hub", image: susnetHub },
+//           { text: "Customized # of TRVs", image: susnetKit },
+//           { text: "Customized # of Global Thermostat", image: susnetImage }
+//         ], "€900")}
 //       </div>
 //     </div>
-//   )
-// }
+//   );
+// };
 
-// export default SusnetKits
+// export default SusnetKits;
+
+import React from 'react';
+import susnetHub from "../../assets/images/susnet_hub.png";
+import susnetKit from "../../assets/images/susnet_kit2.png";
+import susnetImage from "../../assets/images/susnet_image.png";
 
 const SusnetKits = () =>
 {
+  const renderKit = (title, description, contents, price) => (
+    <div className="bg-white rounded-xl p-6 shadow-lg overflow-hidden relative w-full max-w-xs transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+      <h3 className="text-2xl font-bold text-center text-cyan-700 mb-4">
+        {title}
+      </h3>
+      <p className="text-lg prose font-semibold text-center text-gray-600 mb-6">{description}</p>
+      <ul className="space-y-3 mb-6">
+        {contents.map((item, index) => (
+          <li key={index} className="flex items-center text-sm bg-gray-50 px-2 py-0.5 rounded-lg transition-colors duration-200 ease-in-out hover:bg-gray-100">
+            <img
+              src={item.image}
+              alt={`Icon for ${item.text}`}
+              className="w-8 h-8 mr-3 object-cover"
+            />
+            <span className="font-semibold text-sm">{item.text}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="text-center font-bold text-xl text-red-600">{price}</p>
+    </div>
+  );
+
   return (
-    <div className="w-full bg-gradient-to-r from-gray-100 via-white to-gray-300 py-16">
-      <h1 className="text-center font-bold text-5xl font-serif mb-12 text-gray-800">Susnet Kits</h1>
+    <div className="w-full bg-gradient-to-br from-gray-50 to-teal-50 py-16 px-6">
+      <h2 className="font-bold font-serif text-4xl text-center text-cyan-700 mb-12">
+        Susnet Kits
+      </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto px-6">
-        {/* Kit 1 */}
-        <div className="relative group p-8 bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 opacity-0 group-hover:opacity-80 transition duration-500 ease-in-out"></div>
-          <div className="relative z-10">
-            <h4 className="font-bold text-3xl text-cyan-600 group-hover:text-white transition duration-300">Home Starter Kit</h4>
-            <p className="text-base font-semibold text-gray-700 group-hover:text-gray-300 mt-3">Perfect for small households and home-based businesses.</p>
-            <p className="text-sm text-gray-500 group-hover:text-gray-200 mt-2">Includes: 1 Hub, 1 TRV, and 1 Global Thermostat.</p>
-            <p className="mt-4 text-lg font-bold text-red-600 group-hover:text-white">Price: €330</p>
-          </div>
-        </div>
-
-        {/* Kit 2 */}
-        <div className="relative group p-8 bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 opacity-0 group-hover:opacity-80 transition duration-500 ease-in-out"></div>
-          <div className="relative z-10">
-            <h4 className="font-bold text-3xl text-cyan-600 group-hover:text-white transition duration-300">Business Pro Kit</h4>
-            <p className="text-base font-semibold text-gray-700 group-hover:text-gray-300 mt-3">Designed for larger homes and mid-sized businesses.</p>
-            <p className="text-sm text-gray-500 group-hover:text-gray-200 mt-2">Includes: 1 Hub, 10 TRVs, and 2 Global Thermostats.</p>
-            <p className="mt-4 text-lg font-bold text-red-600 group-hover:text-white">Price: €750</p>
-          </div>
-        </div>
-
-        {/* Kit 3 */}
-        <div className="relative group p-8 bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 opacity-0 group-hover:opacity-80 transition duration-500 ease-in-out"></div>
-          <div className="relative z-10">
-            <h4 className="font-bold text-3xl text-cyan-600 group-hover:text-white transition duration-300">Enterprise Custom Kit</h4>
-            <p className="text-base font-semibold text-gray-700 group-hover:text-gray-300 mt-3">Tailored solutions for large enterprises and industrial settings.</p>
-            <p className="text-sm text-gray-500 group-hover:text-gray-200 mt-2">Customizable for unique business needs.</p>
-            <p className="mt-4 text-lg font-bold text-red-600 group-hover:text-white">Price: Starting from €900</p>
-          </div>
-        </div>
+      <div className="flex flex-wrap justify-center gap-8">
+        {renderKit("Kit 1", "Ideal for Homes", [
+          { text: "1 x Hub", image: susnetHub },
+          { text: "1 x Global Thermostat", image: susnetImage }
+        ], "€330")}
+        {renderKit("Kit 2", "Homes and Small Businesses", [
+          { text: "1 x Hub", image: susnetHub },
+          { text: "4 x TRVs", image: susnetKit },
+          { text: "1 x Global Thermostat", image: susnetImage }
+        ], "€750")}
+        {renderKit("Kit 3", "Custom for Large Companies", [
+          { text: "Customized # of Hub", image: susnetHub },
+          { text: "Customized # of TRVs", image: susnetKit },
+          { text: "Customized # of Global Thermostat", image: susnetImage }
+        ], "€900")}
       </div>
     </div>
   );
 };
 
 export default SusnetKits;
-
-
