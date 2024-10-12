@@ -11,13 +11,11 @@ import susnetImage from "../../assets/images/susnet_image.png"
 
 const SelectKitsPlans = () =>
 {
-    const [isPlans, setIsPlans] = useState(false);
-    const [isSummary, setIsSummary] = useState(false);
+    const [currentStep, setCurrentStep] = useState('kits');
     const [selectedKit, setSelectedKit] = useState(null);
     const [selectedPlan, setSelectedPlan] = useState(null);
-    const [hasSelected, setHasSelected] = useState(false);
-    const [back, setBack] = useState(false);
 
+    // Define plan details and kit details as before...
     // Define plan details
     const planDetails = {
         Basic: {
@@ -81,7 +79,6 @@ const SelectKitsPlans = () =>
 
     const selectKit = (kitIndex) =>
     {
-        setHasSelected(!hasSelected);
         setSelectedKit(kitIndex);
     };
 
@@ -96,7 +93,7 @@ const SelectKitsPlans = () =>
     {
         if (selectedKit)
         {
-            setIsPlans(true);
+            setCurrentStep('plans');
         } else
         {
             toast.error("Please select a kit first.");
@@ -105,36 +102,43 @@ const SelectKitsPlans = () =>
 
     const goBack = () =>
     {
-        setBack(true);
+        if (currentStep === 'kits')
+        {
+            // Navigate back to QuizSection
+            setCurrentStep('quiz');
+        } else if (currentStep === 'plans')
+        {
+            setCurrentStep('kits');
+        } else if (currentStep === 'summary')
+        {
+            setCurrentStep('plans');
+        }
     };
 
     const update = () =>
     {
         if (selectedPlan)
         {
-            setIsSummary(true);
+            setCurrentStep('summary');
         } else
         {
             toast.error("Please select a plan.");
         }
     };
 
-    if (isSummary)
+    switch (currentStep)
     {
-        return <SummaryComponent selectedKit={selectedKit} selectedPlan={selectedPlan} kitDetails={kitDetails} planDetails={planDetails} />;
+        case 'quiz':
+            return <QuizSection />;
+        case 'kits':
+            return <KitsComponent selectKit={selectKit} selectedKit={selectedKit} goBack={goBack} next={next} />;
+        case 'plans':
+            return <PlansComponent handleSelectPlan={handleSelectPlan} isSelected={isSelected} setIsPlans={setCurrentStep} update={update} goBack={goBack} />;
+        case 'summary':
+            return <SummaryComponent selectedKit={selectedKit} selectedPlan={selectedPlan} kitDetails={kitDetails} planDetails={planDetails} onBack={goBack} />;
+        default:
+            return null;
     }
-
-    if (isPlans)
-    {
-        return <PlansComponent handleSelectPlan={handleSelectPlan} isSelected={isSelected} setIsPlans={setIsPlans} update={update} />;
-    }
-
-    if (back)
-    {
-        return <QuizSection />;
-    }
-
-    return <KitsComponent selectKit={selectKit} selectedKit={selectedKit} hasSelected={hasSelected} goBack={goBack} next={next} />;
 };
 
 export default SelectKitsPlans;

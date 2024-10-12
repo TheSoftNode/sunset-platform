@@ -1,21 +1,12 @@
-import React from 'react';
 import { CheckIcon, XMarkIcon } from '@heroicons/react/16/solid';
 import { motion } from 'framer-motion';
 import special from "../../assets/images/special2.png"
 
-const PlansComponent = ({ handleSelectPlan, isSelected, setIsPlans, update }) =>
+const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
 {
-
     const SpecialOffer = () => (
         <div className="absolute -top-6 -right-7 w-24 h-24 rotate-12">
             <img src={special} alt="" />
-            {/* <div className="bg-yellow-400 text-blue-900 text-xs font-bold rounded-full w-full h-full flex items-center justify-center transform rotate-12 shadow-lg">
-                <div className="text-center">
-                    <div>€1</div>
-                    <div>First</div>
-                    <div>Month</div>
-                </div>
-            </div> */}
         </div>
     );
 
@@ -181,7 +172,7 @@ const PlansComponent = ({ handleSelectPlan, isSelected, setIsPlans, update }) =>
             >
                 <motion.button
                     className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold"
-                    onClick={() => setIsPlans(false)}
+                    onClick={goBack}
                     whileHover={{
                         scale: 1.05,
                         backgroundColor: "#ef4444",
