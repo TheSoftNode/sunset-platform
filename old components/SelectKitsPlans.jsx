@@ -4,6 +4,8 @@ import { CheckIcon } from '@heroicons/react/16/solid';
 import { XMarkIcon } from '@heroicons/react/16/solid';
 import { toast } from "react-toastify";
 import QuizSection from "../Landing/QuizSection";
+import { planDetails } from "../../assets/Data";
+import { kitDetails } from "../../assets/Data";
 
 
 
@@ -17,39 +19,39 @@ const SelectKitsPlans = () =>
   const [back, setBack] = useState(false)
 
 
-  // Define plan details
-  const planDetails = {
-    Basic: {
-      name: "Basic",
-      price: "€10 / month",
-      features: [
-        "1 IOT Hub + 1 Thermostat",
-        "Connect up to 5 Devices",
-        "No Data Dashboard",
-        "No Customer Support"
-      ]
-    },
-    Standard: {
-      name: "Standard",
-      price: "€20 / month",
-      features: [
-        "1 IOT Hub + 5 TRVs",
-        "Connect up to 20 Devices",
-        "Access Dashboard",
-        "24/7 Customer Support"
-      ]
-    },
-    Premium: {
-      name: "Premium",
-      price: "€30 / month",
-      features: [
-        "2 IOT Hubs + 10 TRVs",
-        "Connect up to 30 Devices",
-        "Access Dashboard",
-        "24/7 Customer Support"
-      ]
-    }
-  };
+  // // Define plan details
+  // const planDetails = {
+  //   Basic: {
+  //     name: "Basic",
+  //     price: "€10 / month",
+  //     features: [
+  //       "1 IOT Hub + 1 Thermostat",
+  //       "Connect up to 5 Devices",
+  //       "No Data Dashboard",
+  //       "No Customer Support"
+  //     ]
+  //   },
+  //   Standard: {
+  //     name: "Standard",
+  //     price: "€20 / month",
+  //     features: [
+  //       "1 IOT Hub + 5 TRVs",
+  //       "Connect up to 20 Devices",
+  //       "Access Dashboard",
+  //       "24/7 Customer Support"
+  //     ]
+  //   },
+  //   Premium: {
+  //     name: "Premium",
+  //     price: "€30 / month",
+  //     features: [
+  //       "2 IOT Hubs + 10 TRVs",
+  //       "Connect up to 30 Devices",
+  //       "Access Dashboard",
+  //       "24/7 Customer Support"
+  //     ]
+  //   }
+  // };
 
 
   // Function to handle kit selection
@@ -98,26 +100,27 @@ const SelectKitsPlans = () =>
       alert("Please select a plan.");
     }
   };
-  const kitDetails = {
-    1: {
-      name: "Kit 1",
-      description: "Ideal for Home and Small Business.",
-      contents: "1 Hub + 1 TRV + 1 Global Thermostat",
-      price: "€330"
-    },
-    2: {
-      name: "Kit 2",
-      description: "Home and large Business.",
-      contents: "1 Hub + 10 TRVs + 2 Global Thermostats",
-      price: "€750"
-    },
-    3: {
-      name: "Kit 3",
-      description: "Custom kit for large companies.",
-      contents: "Customized for business and companies.",
-      price: "€900"
-    }
-  };
+
+  // const kitDetails = {
+  //   1: {
+  //     name: "Kit 1",
+  //     description: "Ideal for Home and Small Business.",
+  //     contents: "1 Hub + 1 TRV + 1 Global Thermostat",
+  //     price: "€330"
+  //   },
+  //   2: {
+  //     name: "Kit 2",
+  //     description: "Home and large Business.",
+  //     contents: "1 Hub + 10 TRVs + 2 Global Thermostats",
+  //     price: "€750"
+  //   },
+  //   3: {
+  //     name: "Kit 3",
+  //     description: "Custom kit for large companies.",
+  //     contents: "Customized for business and companies.",
+  //     price: "€900"
+  //   }
+  // };
 
 
 
