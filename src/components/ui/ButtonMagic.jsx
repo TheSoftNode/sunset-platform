@@ -71,7 +71,7 @@ const ButtonMagic = ({
                 <span className="absolute inset-0 w-full h-full animate-[spin_3s_linear_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
             )}
             <span className={`
-        relative flex items-center justify-center w-full h-full text-xs
+        relative flex items-center justify-center w-full h-full text-[0.7rem] xs:text-xs
         md:text-sm prose text-white font-semibold tracking-wider uppercase 
       `}>
                 {position === "left" && icon}
