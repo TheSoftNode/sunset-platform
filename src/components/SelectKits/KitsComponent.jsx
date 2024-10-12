@@ -2,8 +2,26 @@ import susnetHub from "../../assets/images/susnet_hub.png"
 import susnetKit from "../../assets/images/susnet_kit2.png"
 import susnetImage from "../../assets/images/susnet_image.png"
 
+import QuizSection from '../Landing/QuizSection';
+import { useState } from 'react';
+import { X } from 'lucide-react';
+import { motion } from 'framer-motion';
+
 const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
 {
+
+    const [close, setClose] = useState(false);
+
+    const handleClose = () =>
+    {
+        setClose(true);
+    };
+
+    if (close)
+    {
+        return <QuizSection />;
+    }
+
     const handleKitSelection = (kitIndex) =>
     {
         selectKit(selectedKit === kitIndex ? null : kitIndex);
@@ -15,6 +33,7 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
             className={`cursor-pointer w-full  xs:w-1/2 md:w-1/3 lg:w-1/4 py-4 px-12 xs:px-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out ${selectedKit === kitIndex ? "bg-blue-700 scale-105 text-white" : "bg-white text-gray-900"
                 } hover:scale-105`}
         >
+
             <h4
                 className={`font-bold text-center text-xl prose ${selectedKit === kitIndex ? "text-green-600" : "text-cyan-700 hover:text-orange-500"
                     }`}
@@ -62,7 +81,17 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
     );
 
     return (
-        <div className="w-full bg-gradient-to-br from-teal-900 via-cyan-800 to-blue-900 py-12 px-6 flex gap-y-8 lg:gap-y-6 flex-col">
+        <div className="w-full relative bg-gradient-to-br from-teal-900 via-cyan-800 to-blue-900 py-12 px-6 flex gap-y-8 lg:gap-y-6 flex-col">
+            {/* Close button */}
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute md:right-24 md:top-10 right-2 top-2 bg-gray-300 hover:bg-red-400 hover:text-white text-gray-700 rounded-full p-1 transition duration-200"
+                onClick={handleClose}
+            >
+                <X size={20} />
+            </motion.button>
+
             <h2 className="font-bold font-serif text-[1.7rem] leading-[2.2rem] prose text-center text-white">
                 Please Select Kits
             </h2>

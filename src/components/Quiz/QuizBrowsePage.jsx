@@ -156,12 +156,6 @@ const QuizBrowsePage = () =>
       setShowSummary(true);
       toast.success("Congratulations! You have completed the quiz.");
     }
-
-    // if (index < data.length - 1) {
-    //   setIndex(index + 1);
-    // } else {
-    //   toast.success("Congratulations! You have completed the quiz.");
-    // }
   };
 
 
@@ -233,7 +227,6 @@ const QuizBrowsePage = () =>
       onBack={() => setShowSummary(false)}
     />;
 
-    console.log(recommendation)
   }
 
   if (showQuizSection || close)
