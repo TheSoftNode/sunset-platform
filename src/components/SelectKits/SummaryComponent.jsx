@@ -1,9 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckIcon, XMarkIcon, ArrowLeftIcon } from '@heroicons/react/16/solid';
+import special from "../../assets/images/special2.png"
 
 const SummaryComponent = ({ selectedKit, selectedPlan, kitDetails, planDetails, onBack }) =>
 {
+
+    const SpecialOffer = () => (
+        <div className="absolute top-4 left-0  w-28 z-28 h-32 rotate-12">
+            <img src={special} alt="" />
+        </div>
+    );
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -100,13 +107,18 @@ const SummaryComponent = ({ selectedKit, selectedPlan, kitDetails, planDetails, 
                     }}
                 >
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-                    <h3 className="text-xl font-bold text-center prose text-cyan-700 mb-2">
-                        {selectedPlanDetails.name} Plan
-                    </h3>
-                    <p className="text-sm text-center font-semibold prose text-gray-600 mb-1">{selectedPlanDetails.description}</p>
-                    <p className="text-center font-bold text-sm prose text-red-600 mb-1">{selectedPlanDetails.price}</p>
-                    <p className="text-sm prose font-bold text-center">or</p>
-                    <p className="text-xs prose font-semibold text-center text-green-600 mb-6">{selectedPlanDetails.yearlyPrice}</p>
+                    <SpecialOffer />
+
+                    <div className='pl-8'>
+                        <h3 className="text-xl font-bold text-center prose text-cyan-700 mb-2">
+                            {selectedPlanDetails.name} Plan
+                        </h3>
+                        <p className="text-sm text-center font-semibold prose text-gray-600 mb-1">{selectedPlanDetails.description}</p>
+                        <p className="text-center font-bold text-sm prose text-red-600 mb-1">{selectedPlanDetails.price}</p>
+                        <p className="text-sm prose font-bold text-center">or</p>
+                        <p className="text-xs prose font-semibold text-center text-green-600 mb-6">{selectedPlanDetails.yearlyPrice}</p>
+                    </div>
+
                     <ul className="space-y-1">
                         {selectedPlanDetails.features.map((feature, index) => (
                             <li key={index} className="flex items-center text-xs prose font-bold bg-gray-50 py-1 px-2 rounded-lg">
