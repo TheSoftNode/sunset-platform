@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckIcon, XMarkIcon, ArrowLeftIcon } from '@heroicons/react/16/solid';
-import special from "../../assets/images/special2.png"
+import special from "../../assets/images/special3.png"
 
 const SummaryComponent = ({ selectedKit, selectedPlan, kitDetails, planDetails, onBack }) =>
 {
