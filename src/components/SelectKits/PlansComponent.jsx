@@ -1,6 +1,6 @@
 import { CheckIcon, XMarkIcon } from '@heroicons/react/16/solid';
 import { motion } from 'framer-motion';
-import special from "../../assets/images/special2.png";
+import special from "../../assets/images/special3.png";
 
 const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
 {
