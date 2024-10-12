@@ -1,9 +1,25 @@
 import { CheckIcon, XMarkIcon } from '@heroicons/react/16/solid';
 import { motion } from 'framer-motion';
 import special from "../../assets/images/special3.png";
+import QuizSection from '../Landing/QuizSection';
+import { useState } from 'react';
+import { X } from 'lucide-react';
 
 const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
 {
+
+    const [close, setClose] = useState(false);
+
+    const handleClose = () =>
+    {
+        setClose(true);
+    };
+
+    if (close)
+    {
+        return <QuizSection />;
+    }
+
     const SpecialOffer = () => (
         <div className="absolute -top-6 -right-7 w-24 h-24 rotate-12">
             <img src={special} alt="" />
@@ -52,6 +68,16 @@ const PlansComponent = ({ handleSelectPlan, isSelected, goBack, update }) =>
             animate="visible"
             variants={containerVariants}
         >
+            {/* Close button */}
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute top-2 right-2 md:top-10 md:right-24 bg-gray-300 hover:bg-red-400 hover:text-white text-gray-700 rounded-full p-1 transition duration-200"
+                onClick={handleClose}
+            >
+                <X size={20} />
+            </motion.button>
+
             <motion.h2
                 className="font-bold text-xl lg:text-2xl prose text-white text-center mb-4"
                 variants={cardVariants}
