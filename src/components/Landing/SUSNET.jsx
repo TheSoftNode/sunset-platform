@@ -69,7 +69,7 @@ const SUSNET = () =>
               Susnet
             </motion.h1>
             <motion.h2
-              className="font-semibold text-xl xs:text-2xl text-justify tracking-tighter sm:tracking-tight prose  sm:text-3xl text-teal-100 mb-6 leading-snug"
+              className="font-semibold text-lg xs:text-2xl text-justify tracking-tighter sm:tracking-tight prose  sm:text-3xl text-teal-100 mb-6 leading-snug"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -77,7 +77,7 @@ const SUSNET = () =>
               Empower Your Energy Efficiency With SusNet
             </motion.h2>
             <motion.p
-              className="text-gray-300 text-lg prose text-justify tracking-tighter leading-relaxed mb-8"
+              className="text-gray-300 text-sm xs:text-lg prose text-justify tracking-tighter leading-relaxed mb-8"
               variants={itemVariants}
             >
               SusNet is HitoAI's flagship product, an AI-powered sustainable energy management system engineered to optimize energy usage.
@@ -99,7 +99,7 @@ const SUSNET = () =>
                 >
                   <CheckIcon className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1 mr-3" />
                   <p
-                    className="text-gray-300 text-lg"
+                    className="text-gray-300 text-sm sm:text-lg"
                     dangerouslySetInnerHTML={{ __html: benefit.text }}
                   />
                 </motion.li>
