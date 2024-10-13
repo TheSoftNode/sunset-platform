@@ -240,7 +240,7 @@ const QuizBrowsePage = () =>
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white max-w-xl w-full pt-4 px-4 pb-1 shadow-xl rounded-lg h-[28rem]"
+        className="bg-white max-w-xl w-full pt-4 px-4 pb-1 shadow-xl rounded-lg h-[29.5rem] md:h-[28rem]"
       >
         {/* Close button */}
         <motion.button

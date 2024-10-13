@@ -15,7 +15,7 @@ const Footer = () =>
           {/* Logo Section */}
           <div className="w-full flex gap-x-6 sm:gap-x-8 md:w-1/3 mb-6 md:mb-0">
             <img src={logo} alt="HitoAI Logo" className="h-12 mb-2" />
-            <p className="text-sm font-semibold prose text-gray-400 mt-5">
+            <p className="text-sm font-semibold prose text-gray-400 mt-2 md:mt-3">
               Empowering AI Solutions for Your Future
             </p>
           </div>
