@@ -181,7 +181,7 @@ const PricingPlans = () =>
 
       {/* Pricing Cards */}
       <motion.div
-        className="flex flex-col md:flex-row gap-12 w-full max-w-6xl px-4 justify-center"
+        className="flex flex-col md:flex-row gap-12 w-full max-w-6xl px-4 justify-center items-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
