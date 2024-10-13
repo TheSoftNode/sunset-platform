@@ -164,8 +164,8 @@ const EnvironmentalDataAnalytics = () =>
         <div className="grid md:grid-cols-2 gap-12">
           <section className="space-y-8">
             <div>
-              <h2 className="text-3xl font-bold !text-black prose mb-4">Efficient and Accurate Environmental Data Analysis</h2>
-              <p className="text-lg prose text-justify text-black tracking-tight hyphens-auto">
+              <h2 className="xs:!text-3xl text-2xl font-bold hyphens-auto !text-black prose mb-4">Efficient and Accurate Environmental Data Analysis</h2>
+              <p className="text-lg prose text-justify text-gray-800 tracking-tight hyphens-auto">
                 Welcome to SusNet's Environmental Data Analytics tool!
                 Our AI-powered platform is designed to deliver precise environmental insights, helping you make informed decisions that optimize both energy efficiency and costs.
               </p>
@@ -176,29 +176,29 @@ const EnvironmentalDataAnalytics = () =>
               <ul className="space-y-6">
                 <li>
                   <h4 className="text-xl prose text-black font-semibold">Enter Your Eircode:</h4>
-                  <p className='prose text-justify tracking-tighter sm:tracking-tight text-lg text-black'>Start by providing the Eircode of your location in Ireland. This ensures accurate, localized weather data tailored to your area.</p>
+                  <p className='prose text-justify tracking-tighter sm:tracking-tight text-lg text-gray-800'>Start by providing the Eircode of your location in Ireland. This ensures accurate, localized weather data tailored to your area.</p>
                 </li>
                 <li>
                   <h4 className="text-xl prose text-black font-semibold">Select Forecast Range:</h4>
-                  <p className='prose text-justify tracking-tighter  sm:tracking-tight text-lg text-black'>Choose the forecast duration that suits your analysis needs—1, 3, 5, 7, 14, or 16 days. The flexibility allows you to plan ahead effectively.</p>
+                  <p className='prose text-justify tracking-tighter  sm:tracking-tight text-lg text-gray-800'>Choose the forecast duration that suits your analysis needs—1, 3, 5, 7, 14, or 16 days. The flexibility allows you to plan ahead effectively.</p>
                 </li>
                 <li>
                   <h4 className="text-xl prose text-black font-semibold">Pick Weather Variables:</h4>
-                  <p className='prose text-justify tracking-tighter sm:tracking-tight text-lg text-black'>Customize your analysis by selecting the weather variables you need, such as temperature, humidity, wind speed, and more.</p>
+                  <p className='prose text-justify tracking-tighter sm:tracking-tight text-lg text-gray-800'>Customize your analysis by selecting the weather variables you need, such as temperature, humidity, wind speed, and more.</p>
                 </li>
               </ul>
             </div>
 
             <div>
               <h3 className="text-2xl prose text-cyan-900 font-semibold mb-2">Why Choose SusNet?</h3>
-              <p className="prose text-justify tracking-tighter sm:tracking-tight text-black text-lg">
+              <p className="prose text-justify tracking-tighter sm:tracking-tight text-gray-800 text-lg">
                 Our platform integrates both outdoor and indoor building data analytics, allowing you to leverage AI for cost-saving strategies that enhance sustainability and operational efficiency. SusNet is your trusted partner in driving smarter, data-driven decisions.
               </p>
             </div>
           </section>
 
           <section className="bg-white shadow-xl rounded-lg md:p-8  p-4">
-            <h2 className="md:text-3xl text-xl xs:text-2xl font-bold prose text-black xs:!mb-10 mb-4 text-center">Environmental Data Analysis</h2>
+            <h2 className="md:!Stext-3xl !text-xl xs:!text-2xl font-bold prose text-black xs:!mb-10 mb-4 text-center">Environmental Data Analysis</h2>
 
             <div className="space-y-6 xs:space-y-10">
               <div>
