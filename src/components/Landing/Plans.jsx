@@ -180,7 +180,7 @@ const PricingPlans = () =>
       </div>
 
       {/* Pricing Cards */}
-      <motion.div
+      {/* <motion.div
         className="flex flex-col md:flex-row gap-12 w-full max-w-6xl px-4 justify-center items-center"
         variants={containerVariants}
         initial="hidden"
@@ -218,6 +218,75 @@ const PricingPlans = () =>
                   <p className="text-sm font-bold text-green-600">{plan.yearlyPrice}</p>
                 </div>
                 <ul className="space-y-2">
+                  {plan.features.map((feature, i) => (
+                    <motion.li
+                      key={i}
+                      className="flex items-center text-sm font-medium text-gray-700"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <CheckIcon className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </motion.li>
+                  ))}
+                  {plan.extras.map((extra, i) => (
+                    <motion.li
+                      key={i}
+                      className="flex items-center text-sm font-medium text-gray-500"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: (plan.features.length + i) * 0.1 }}
+                    >
+                      <XMarkIcon className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
+                      <span>{extra}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div> */}
+
+      <motion.div
+        className="flex flex-col md:flex-row gap-12 w-full max-w-6xl px-4 justify-center items-stretch"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatePresence>
+          {plans.map((plan, idx) => (
+            <motion.div
+              key={idx}
+              className="rounded-lg p-6 shadow-lg flex-1 bg-white border border-teal-200 relative flex flex-col max-w-sm w-full"
+              variants={cardVariants}
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                borderColor: "rgba(6, 182, 212, 0.5)",
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }
+              }}
+            >
+              <SpecialOffer />
+              <div className="flex flex-col h-full">
+                <motion.div
+                  className={`${plan.color} w-24 mx-auto text-white text-center text-sm font-semibold rounded-full px-2 py-1 mb-3 inline-block`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {plan.name}
+                </motion.div>
+                <h3 className="text-lg text-center font-semibold text-gray-800 mb-2">{plan.description}</h3>
+                <div className="mb-4 flex flex-col justify-center items-center">
+                  <p className="font-bold text-red-600 text-2xl">{plan.monthlyPrice}</p>
+                  <p className="text-sm font-medium text-gray-600">or</p>
+                  <p className="text-sm font-bold text-green-600">{plan.yearlyPrice}</p>
+                </div>
+                <ul className="space-y-2 flex-grow">
                   {plan.features.map((feature, i) => (
                     <motion.li
                       key={i}
