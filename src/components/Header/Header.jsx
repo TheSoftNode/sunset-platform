@@ -56,8 +56,8 @@ const Header = () =>
       animate="visible"
       className={`
         ${header
-          ? "py-4 bg-gray-50 shadow-lg dark:bg-accent"
-          : "py-6 dark:bg-transparent bg-gray-50"}
+          ? "py-2 bg-gray-50 shadow-lg dark:bg-accent"
+          : "py-3 dark:bg-transparent bg-gray-50"}
         sticky top-0 z-30 transition-all bg-gray-50 duration-300 ease-in-out px-2 lg:px-4
         ${location.pathname === "/" && ""}
       `}
@@ -87,11 +87,11 @@ const Header = () =>
 
 
 
-            <motion.div variants={itemVariants} className="mr-1.5">
+            <motion.div variants={itemVariants} className="mr-1">
               <LoginButton />
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mr-1.5">
+            <motion.div variants={itemVariants} className="mr-1">
               <CartComponent />
             </motion.div>
 

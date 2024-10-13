@@ -240,7 +240,7 @@ const QuizBrowsePage = () =>
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white max-w-xl w-full pt-4 px-4 pb-1 shadow-xl rounded-lg h-[29.5rem] md:h-[28rem]"
+        className="bg-white max-w-xl w-full pt-4 px-4 pb-1 shadow-xl rounded-lg h-[29rem]"
       >
         {/* Close button */}
         <motion.button
@@ -252,7 +252,7 @@ const QuizBrowsePage = () =>
           <X size={20} />
         </motion.button>
 
-        <div className="flex gap-3  items-center mb-2.5">
+        <div className="flex gap-3 mt-1  items-center mb-2.5">
           <img className='w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-teal-500 ' src={robot3} alt="Robot" />
           <h1 className='text-sm prose sm:text-xl font-bold text-teal-700 text-center sm:text-left'>Customize Your Kits and Plans</h1>
         </div>
@@ -276,7 +276,7 @@ const QuizBrowsePage = () =>
           transition={{ duration: 0.3 }}
           className='mb-4 w-full'
         >
-          <h2 className="bg-teal-50 text-teal-800 rounded-lg px-3 py-2 shadow-md mb-3 text-sm prose w-full font-semibold">
+          <h2 className="bg-teal-50 text-teal-800 rounded-lg px-3 py-2 shadow-md mb-3 text-sm prose text-justify !tracking-tight w-full font-semibold">
             {data[index].question}
           </h2>
 
@@ -289,10 +289,10 @@ const QuizBrowsePage = () =>
                   key={optionNumber}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full text-left flex bg-white border rounded-lg p-2 prose transition-all duration-200 text-sm ${selectedOptions[index] === optionNumber
+                  className={`w-full text-left flex bg-white border rounded-lg p-2 prose transition-all duration-200 text-xs md:text-sm ${selectedOptions[index] === optionNumber
                     ? 'border-teal-500 bg-teal-50 text-teal-700'
                     : 'border-gray-200 hover:border-teal-300 text-gray-700'
-                    } ${getOptionCount() <= 2 ? 'mt-2 mb-5' : 'mb-2'} ${notSelected && "border border-red-500"}`}
+                    } ${getOptionCount() <= 2 ? 'mt-2 mb-4' : 'mb-2.5'} ${notSelected === true && "border border-red-500"}`}
                   onClick={() => toggleOption(optionNumber)}
                 >
                   {data[index][`option${optionNumber}`]}
