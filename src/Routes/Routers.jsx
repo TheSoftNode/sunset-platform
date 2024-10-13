@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import Landing from "../pages/Landing";
 import Documentation from "../pages/Documentation";
-import EnvironmentalDataAnalytics from "../pages/EnvironmentalDataAnalytics";
 import Energybill from "../pages/Energybill";
 import Login from "../components/Auth/Login";
 import Signup from "../components/Auth/Signup";
+import EnvironmentalDataAnalytics from '../pages/EnvironmentalDataAnalytics';
 
 
 const Routers = () =>
