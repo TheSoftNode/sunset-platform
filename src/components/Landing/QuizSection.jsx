@@ -30,7 +30,7 @@ const QuizSection = () =>
         {isQuizPage ? (
           <QuizBrowsePage />
         ) : (
-          <div className="relative shadow-lg w-full max-w-md mx-auto my-4 bg-gradient-to-r from-cyan-700 to-cyan-800 rounded-lg p-5">
+          <div className="relative shadow-lg w-full max-w-md mx-auto my-4 bg-gradient-to-r from-cyan-700 to-cyan-800 rounded-lg p-3">
 
             {/* Close button */}
             <motion.button
@@ -42,7 +42,7 @@ const QuizSection = () =>
               <X size={20} />
             </motion.button>
 
-            <h1 className="sm:text-xl text-lg  font-semibold text-white text-center mt-4 mb-3">
+            <h1 className="sm:text-xl text-lg  font-semibold text-white text-center mt-3 mb-3">
               Need help selecting kits and plans?
             </h1>
             <div className="flex justify-center space-x-6 mb-2">
@@ -78,7 +78,7 @@ const QuizSection = () =>
           </p>
 
           <button
-            className="bg-pink-600 text-white prose w-full max-w-md p-3 font-bold text-xl rounded-lg mx-auto shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300 block"
+            className="bg-pink-600 text-white prose w-full max-w-md px-3 py-2 font-bold text-xl rounded-lg mx-auto shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300 block"
             onClick={() => setShowModel(true)}
           >
             Get Started
