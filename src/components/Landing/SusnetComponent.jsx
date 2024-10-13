@@ -10,17 +10,17 @@ const SusnetComponent = () =>
   const cards = [
     {
       title: "Global Thermostat",
-      description: "This AI-powered, Wi-Fi-based thermostat is designed to revolutionize energy management.",
+      description: "AI-powered, Wi-Fi-based thermostat revolutionizing energy management.",
       image: Group1
     },
     {
       title: "IoT Hub",
-      description: "This IoT Hub is a stable, bidirectional data transmitter designed to enable network connectivity with a closed-loop schema.",
+      description: "Stable, bidirectional data transmitter for network connectivity with closed-loop schema.",
       image: Group2
     },
     {
-      title: "Thermostatic Radiator Valves (TRVs)",
-      description: "This Wi-Fi-enabled TRV device leverages AI to transform energy management. Equipped with state-of-the-art AI ledger.",
+      title: "TRVs",
+      description: "Wi-Fi-enabled Thermostatic Radiator Valves with AI for advanced energy management.",
       image: Group3
     }
   ];
@@ -36,7 +36,7 @@ const SusnetComponent = () =>
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -50,15 +50,15 @@ const SusnetComponent = () =>
 
   return (
     <motion.div
-      className="relative bg-gradient-to-br flex gap-12 from-teal-50 to-gray-100 py-20 px-8 sm:px-6 lg:px-8"
+      className="bg-white py-16 px-4 sm:px-6 lg:px-8"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="sm:max-w-md md:max-w-[68rem] mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.h1
           variants={cardVariants}
-          className="text-4xl md:text-5xl font-extrabold text-center text-teal-600 mb-4"
+          className="text-4xl sm:text-5xl font-bold text-center text-gray-900 mb-4"
         >
           Susnet Components
         </motion.h1>
@@ -66,30 +66,25 @@ const SusnetComponent = () =>
           variants={cardVariants}
           className="text-xl text-center text-gray-600 mb-12"
         >
-          The components set works best with the subscription plan
+          Optimized performance with our subscription plan
         </motion.p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
         >
           {cards.map((card, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 5,
-                rotateX: 5,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-              }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transition-shadow duration-300"
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 border border-gray-200"
             >
-              <img className="w-full h-48 object-fit" src={card.image} alt={card.title} />
+              <img className="w-full h-48 object-cover" src={card.image} alt={card.title} />
               <div className="p-6">
-                <h4 className="font-bold text-xl mb-2 text-teal-600 prose">{card.title}</h4>
-                <p className="text-gray-600 mb-4 prose">{card.description}</p>
-                <button className="inline-flex items-center text-teal-600 prose hover:text-teal-700 transition-colors duration-200">
+                <h4 className="font-semibold text-xl mb-2 text-gray-900">{card.title}</h4>
+                <p className="text-gray-600 mb-4">{card.description}</p>
+                <button className="inline-flex items-center text-teal-600 hover:text-teal-700 transition-colors duration-200 font-medium">
                   Learn More <ArrowRight className="ml-2 h-4 w-4" />
                 </button>
               </div>
