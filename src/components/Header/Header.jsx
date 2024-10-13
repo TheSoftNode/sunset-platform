@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import logo from "../../assets/images/logo_3.png";
@@ -64,14 +64,17 @@ const Header = () =>
     >
       <div className=" w-full mx-auto px-4 sm:px-8">
         <div className="flex justify-between items-center">
-          <motion.img
-            variants={itemVariants}
-            whileHover={{ scale: 1.05, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-            src={logo}
-            alt="Sunset logo"
-            className="w-16 h-16 transition-all duration-300 ease-in-out"
-          />
+          <Link to={"/"}>
+            <motion.img
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              src={logo}
+              alt="Sunset logo"
+              className="w-16 h-16 transition-all duration-300 ease-in-out"
+            />
+          </Link>
+
           <motion.div
             variants={itemVariants}
             className="flex items-center gap-x-3 lg:gap-x-6"
