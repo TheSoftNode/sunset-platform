@@ -16,7 +16,7 @@ const Routers = () =>
         <Route path="/environmentalDataAnalytics" element={<EnvironmentalDataAnalytics />} />
         <Route path="/energybill" element={<Energybill />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
     </Routes>
 };
 

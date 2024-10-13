@@ -3,7 +3,7 @@ import React from 'react';
 const Signup = () =>
 {
     return (
-        <div className='min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-100 to-white p-4'>
+        <div className='min-h-screen pt-16 flex items-start justify-center bg-gradient-to-r from-gray-100 to-white p-4'>
             <form className='bg-white shadow-lg my-3 mx-auto w-full max-w-sm p-10 rounded-lg border border-transparent transition duration-300 transform hover:scale-105 hover:shadow-xl'>
                 <h1 className='font-semibold text-lg py-2 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-green-500 to-blue-500'>
                     Register Your SusNet Hardware
