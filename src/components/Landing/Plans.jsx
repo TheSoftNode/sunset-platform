@@ -142,7 +142,7 @@ const PricingPlans = () =>
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-3xl md:text-4xl font-bold mb-2 prose text-cyan-700"
+        className="text-3xl md:text-4xl font-bold mb-2 prose text-center text-cyan-700"
       >
         Choose Your Perfect Plan
       </motion.h1>
