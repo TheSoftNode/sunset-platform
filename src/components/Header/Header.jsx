@@ -84,11 +84,11 @@ const Header = () =>
 
 
 
-            <motion.div variants={itemVariants} className="mr-3">
+            <motion.div variants={itemVariants} className="mr-1.5">
               <LoginButton />
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mr-3">
+            <motion.div variants={itemVariants} className="mr-1.5">
               <CartComponent />
             </motion.div>
 

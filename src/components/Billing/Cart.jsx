@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import cart from '../../assets/images/cart2.png'
 import { ShoppingCart, X } from 'lucide-react';
 
-const CartComponent = ({ itemCount = 0 }) => {
+const CartComponent = ({ itemCount = 0 }) =>
+{
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCart = () => setIsOpen(!isOpen);
@@ -15,7 +17,8 @@ const CartComponent = ({ itemCount = 0 }) => {
         whileTap={{ scale: 0.9 }}
         onClick={toggleCart}
       >
-        <ShoppingCart className="w-6 h-6" />
+        {/* <ShoppingCart className="w-6 h-6" /> */}
+        <img src={cart} className="w-9 h-11" alt="" />
         {itemCount > 0 && (
           <motion.span
             key={itemCount}
