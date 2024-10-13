@@ -3,8 +3,8 @@ import Landing from "../pages/Landing";
 import Documentation from "../pages/Documentation";
 import EnvironmentalDataAnalytics from "../pages/EnvironmentalDataAnalytics";
 import Energybill from "../pages/Energybill";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
+import Login from "../components/Auth/Login";
+import Signup from "../components/Auth/Signup";
 
 
 const Routers = () =>
