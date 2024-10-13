@@ -92,7 +92,7 @@ const KitsComponent = ({ selectKit, selectedKit, goBack, next }) =>
                 <X size={20} />
             </motion.button>
 
-            <h2 className="font-bold font-serif text-[1.7rem] leading-[2.2rem] prose text-center text-white">
+            <h2 className="font-bold  text-[1.7rem] leading-[2.2rem] prose text-center text-white">
                 Please Select Kits
             </h2>
 
