@@ -4,7 +4,7 @@ import ButtonMagic from "../ui/ButtonMagic";
 const Hero = () =>
 {
   return (
-    <section className="relative w-full h-screen bg-gray-900 overflow-hidden">
+    <section className=".hero-section relative w-full h-screen bg-gray-900 overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
