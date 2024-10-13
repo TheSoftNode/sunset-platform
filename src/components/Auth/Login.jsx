@@ -32,7 +32,7 @@ const Login = () =>
                 </button>
 
                 <p className='mt-4 text-center text-gray-600'>
-                    Don&apo;t have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <Link to='/signup' className='text-blue-500 font-semibold hover:underline'>
                         Sign Up
                     </Link>

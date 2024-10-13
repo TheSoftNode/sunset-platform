@@ -35,7 +35,7 @@ const Signup = () =>
 
                 <p className='mt-4 text-center text-gray-600'>
                     Already have an account?{' '}
-                    <Link to='/login' clLinkssName='text-blue-500 font-semibold hover:underline'>
+                    <Link to='/login' className='text-blue-500 font-semibold hover:underline'>
                         Log In
                     </Link>
                 </p>
