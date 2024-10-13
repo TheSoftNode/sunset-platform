@@ -1,55 +1,51 @@
+import React from 'react';
 import logo from '../../assets/images/logo_3.png';
 import LinkedIn from '../../assets/images/LinkedIn.png';
-import Twitter from '../../assets/images/twiter.png';
+import Twitter from '../../assets/images/twiter2.png';
 import Facebook from '../../assets/images/fb.png';
-import Instagram from '../../assets/images/insta.jpeg';
+import Instagram from '../../assets/images/insta2.png';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
 
 const Footer = () =>
 {
   return (
-    <footer className="bg-cyan-950 text-white py-10">
+    <footer className="bg-cyan-950 py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0 md:space-x-16">
-
+        <div className="flex flex-wrap justify-between items-center">
           {/* Logo Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <img className="w-20 h-20 mb-4" src={logo} alt="Company Logo" />
-            <p className="text-sm opacity-75">Empowering AI Solutions for Your Future</p>
+          <div className="w-full flex gap-x-6 sm:gap-x-8 md:w-1/3 mb-6 md:mb-0">
+            <img src={logo} alt="HitoAI Logo" className="h-12 mb-2" />
+            <p className="text-sm font-semibold prose text-gray-400 mt-5">
+              Empowering AI Solutions for Your Future
+            </p>
           </div>
 
           {/* Contact Information */}
-          <div className="flex flex-col items-center md:items-start space-y-4">
-            <div className="flex items-center space-x-2">
-              <PhoneIcon className="w-5 h-5 text-teal-400" />
-              <span>+353 899832147</span>
+          <div className="w-full flex flex-wrap gap-8 justify-center items-center md:w-1/3 mb-6 md:mb-0">
+            <div className="flex items-center mb-2">
+              <PhoneIcon className="h-5 w-5 mr-2 text-gray-400" />
+              <span className="text-sm prose text-gray-400">+353 899832147</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <EnvelopeIcon className="w-5 h-5 text-teal-400" />
-              <span>info@hitoai.com</span>
+            <div className="flex items-center">
+              <EnvelopeIcon className="h-5 w-5 mr-2 text-gray-400" />
+              <span className="text-sm prose text-gray-400">info@hitoai.com</span>
             </div>
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex space-x-6">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <img className="w-8 h-8 hover:opacity-75 transition duration-300" src={LinkedIn} alt="LinkedIn" />
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <img className="w-8 h-8 hover:opacity-75 transition duration-300" src={Facebook} alt="Facebook" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <img className="w-8 h-8 hover:opacity-75 transition duration-300" src={Instagram} alt="Instagram" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <img className="w-8 h-8 hover:opacity-75 transition duration-300" src={Twitter} alt="Twitter" />
-            </a>
+          <div className="w-full md:w-1/3 flex justify-center md:justify-end">
+            <img src={LinkedIn} alt="LinkedIn" className="h-6 mx-2" />
+            <img src={Twitter} alt="Twitter" className="h-6 mx-2" />
+            <img src={Facebook} alt="Facebook" className="h-6 mx-2" />
+            <img src={Instagram} alt="Instagram" className="h-6 mx-2" />
           </div>
         </div>
 
         {/* Copyright Section */}
-        <div className="text-center mt-8 text-xs opacity-75">
-          © {new Date().getFullYear()} HitoAI. All rights reserved.
+        <div className="mt-8 pt-8 border-t border-gray-600 text-center">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} HitoAI. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
@@ -57,4 +53,3 @@ const Footer = () =>
 };
 
 export default Footer;
-
