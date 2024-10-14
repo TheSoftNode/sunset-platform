@@ -44,13 +44,13 @@ const WhyUs = () =>
                         className="text-4xl md:text-5xl font-bold mb-6 text-center text-blue-800"
                         variants={itemVariants}
                     >
-                        Why Choose Sunset?
+                        Why Choose Susnet?
                     </motion.h2>
                     <motion.p
                         className="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto"
                         variants={itemVariants}
                     >
-                        Sunset offers the best solution to reduce your electricity bill while promoting sustainability.
+                        Susnet offers the best solution to reduce your electricity bill while promoting sustainability.
                     </motion.p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
