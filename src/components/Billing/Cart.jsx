@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import cart from '../../assets/images/cart2.png'
 import { ShoppingCart, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CartComponent = ({ itemCount = 0 }) =>
 {
@@ -12,13 +13,15 @@ const CartComponent = ({ itemCount = 0 }) =>
   return (
     <div className="relative">
       <motion.button
-        className="p-2 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full"
+        className=" text-gray-700 hover:text-gray-900 "
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={toggleCart}
       >
         {/* <ShoppingCart className="w-6 h-6" /> */}
-        <img src={cart} className="w-9 h-11" alt="" />
+        <Link to={"https://9a0ca6-25.myshopify.com/"}>
+          <img src={cart} className="w-9 h-11" alt="" />
+        </Link>
         {itemCount > 0 && (
           <motion.span
             key={itemCount}
@@ -31,7 +34,7 @@ const CartComponent = ({ itemCount = 0 }) =>
         )}
       </motion.button>
 
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -65,7 +68,7 @@ const CartComponent = ({ itemCount = 0 }) =>
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   );
 };
