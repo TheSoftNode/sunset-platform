@@ -74,7 +74,7 @@ const QuizSection = () =>
       ) : (
         <div id='quizStart' className="bg-gradient-to-br from-teal-900 via-cyan-800 to-blue-900 w-full flex flex-col items-center py-3  justify-center gap-y-10 h-[28rem] px-4">
           <p className="text-center text-xl sm:text-2xl font-bold text-white prose">
-            Let's start selecting your Sunset kits or plans of your choice.
+            Let's start selecting your Susnet kits or plans of your choice.
           </p>
 
           <button

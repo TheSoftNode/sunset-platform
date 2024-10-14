@@ -29,7 +29,7 @@ const Hero = () =>
         >
           AI-Enabled Energy Solutions with{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-            Sunset
+            Susnet
           </span>
         </motion.h1>
         <motion.p
