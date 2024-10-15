@@ -19,7 +19,8 @@ const CartComponent = ({ itemCount = 0 }) =>
         onClick={toggleCart}
       >
         {/* <ShoppingCart className="w-6 h-6" /> */}
-        <Link to={"https://9a0ca6-25.myshopify.com/"}>
+        {/* <Link to={"https://9a0ca6-25.myshopify.com/"}> */}
+        <Link to={"https://onlinestore.hitoai.ai/ "}>
           <img src={cart} className="w-9 h-11" alt="" />
         </Link>
         {itemCount > 0 && (
